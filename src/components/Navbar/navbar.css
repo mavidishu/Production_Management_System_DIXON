@@ -1,0 +1,46 @@
+.header{
+    box-shadow: 3px 2px 10px rgba(1, 10, 112, 0.3);
+    width: 100%;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(75, 74, 74);
+}
+
+.sideNavbar{
+    display: flex;
+    gap: 15px;
+}
+
+.sideNavbar img{
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
+
+.containerNavbar{
+    display: flex;
+}
+
+
+.hamburger-icon{
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+}
+
+span{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.sectionContainer{
+    padding-top: 1rem;
+}
+
+.containerNavbar{
+    position:fixed;
+    width: 100%;
+}

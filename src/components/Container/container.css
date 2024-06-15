@@ -1,0 +1,14 @@
+.bodyContainer{
+    padding-top: 40px;
+}
+
+.cardContainer{
+    display: grid;
+    width: 30%;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+.chart{
+    width: 100%;
+}

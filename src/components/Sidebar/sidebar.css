@@ -1,0 +1,53 @@
+.toggleContent{
+    position: fixed;
+    width: 18rem;
+    padding: 15px 20px;
+    background-color: white;
+    height: 100vh;
+    box-shadow: 1px 0px 10px rgba(1, 10, 112, 0.4);
+    transition: ease-in;
+    z-index: 1;
+}
+
+.toggleContent img{
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+section{
+    padding-top: 0.7rem;
+}
+
+section ul{
+    margin-top: 8px;
+    font-size: 1.2rem;
+    padding-left: 0.6rem;
+}
+
+section ul li{
+    gap: 7px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+section ul li:hover{
+    cursor: pointer;
+    background-color: rgba(1, 10, 112, 0.3);
+}
+
+section ul li img{
+    height: 28px;
+    width: 28px;
+
+}
+
+small{
+    font-size: 1.1rem;
+}

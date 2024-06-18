@@ -1,5 +1,5 @@
 body{
-    background-color:rgb(240, 240, 253);
+    background-color:rgb(240, 240, 240);
     font-family: "Nunito Sans", sans-serif;
 }
 
@@ -10,4 +10,9 @@ ul{
 
 .body{
     width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }

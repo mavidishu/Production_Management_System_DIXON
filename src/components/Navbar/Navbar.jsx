@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./navbar.css";
 import profile from "../../assets/profile.png";
 import darkThemeIcon from "../../assets/darkIcon.png";
+import searchIcon from "../../assets/searchIcon.png";
 import menu from "../../assets/menu.png";
 
 function Navbar() {
@@ -12,13 +13,11 @@ function Navbar() {
           <img className="hamburger-icon" src={menu} />
           <form className="d-flex" role="search">
             <input
-              className="form-control me-2"
-              type="search"
+              className=" inputSearch"
               placeholder="Search"
-              aria-label="Search"
             />
-            <button className="btn btn-secondary" type="submit">
-              Search
+            <button className="btn searchBtn" type="submit">
+              <img src={searchIcon}/>
             </button>
           </form>
 

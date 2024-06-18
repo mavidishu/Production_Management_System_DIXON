@@ -3,10 +3,16 @@
     width: 100%;
 }
 
-.title{
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: rgb(75, 74, 74);
+.inputSearch{
+    width: 20rem;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    border-radius: 1rem;
+    padding:0 1rem;
+}
+.inputSearch:focus{
+    outline: none;
+    border: none;
 }
 
 .sideNavbar{
@@ -22,18 +28,25 @@
 
 .containerNavbar{
     display: flex;
+    z-index: 1;
 }
 
 
 .hamburger-icon{
-    height: 35px;
-    width: 35px;
+    height: 28px;
+    width: 28x;
     cursor: pointer;
 }
 
-span{
-    font-size: 1.3rem;
-    font-weight: 600;
+.searchBtn{
+    margin-left: -50px;
+    background: transparent;
+}
+
+.searchBtn img{
+    background:transparent;
+    height:25px;
+    width: 25px;
 }
 
 .sectionContainer{

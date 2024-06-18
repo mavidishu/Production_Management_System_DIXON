@@ -5,15 +5,20 @@
     background-color: white;
     height: 100vh;
     box-shadow: 1px 0px 10px rgba(1, 10, 112, 0.4);
-    transition: ease-in;
-    z-index: 1;
+    transition: ease-in 1s;
+    z-index:2;
+}
+
+.title{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgb(75, 74, 74);
 }
 
 .toggleContent img{
-    height: 35px;
-    width: 35px;
+    height: 20px;
+    width: 20px;
     cursor: pointer;
-    margin-left: 10px;
     margin-top: 0;
 }
 
@@ -21,13 +26,9 @@
     display: none;
 }
 
-section{
-    padding-top: 0.7rem;
-}
 
 section ul{
     margin-top: 8px;
-    font-size: 1.2rem;
     padding-left: 0.6rem;
 }
 
@@ -42,12 +43,13 @@ section ul li:hover{
     background-color: rgba(1, 10, 112, 0.3);
 }
 
-section ul li img{
-    height: 28px;
-    width: 28px;
 
+span{
+    font-size: 1rem;
+    font-weight: 700;
 }
 
-small{
-    font-size: 1.1rem;
+ul li small{
+    font-size: 0.9rem;
+    font-weight: 600;
 }

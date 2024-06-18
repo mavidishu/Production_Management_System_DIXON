@@ -10,6 +10,7 @@ import admin from "../../assets/admin.png";
 import performance from "../../assets/performance.png";
 import back from "../../assets/back.png";
 import "./sidebar.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -19,6 +20,13 @@ function Sidebar() {
         </a>
         <img className="cross-icon" src={back}/>
         <div className="sectionContainer">
+          <section className='my-3' id="dashboard">
+            <span>
+              {/* <Link to="/">
+                Dashboard
+              </Link> */}
+            </span>
+          </section>
           <section id="clientfacing">
             <span>Client Facing</span>
             <ul>

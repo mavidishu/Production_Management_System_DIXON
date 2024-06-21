@@ -10,7 +10,10 @@ function Navbar() {
     <div className="containerNavbar">
       <nav className="header navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <img className="hamburger-icon" src={menu} />
+          <div className="logoContainer">
+            <a className="logo" href="/">Admin Dashboard</a>
+            <img className="hamburger-icon" src={menu} />
+          </div>
           <form className="d-flex" role="search">
             <input
               className=" inputSearch"

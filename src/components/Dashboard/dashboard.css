@@ -1,0 +1,47 @@
+.bodyContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: scroll;
+}
+.chart{
+    border: 1px groove black;
+    background-color: white;
+    width:90%;
+    height: max-content;
+    padding: 1rem 1rem;
+    border-radius: 0.7rem;
+}
+
+.card{
+    box-shadow: 2px 2px 1px rgba(1, 10, 112, 0.3);
+}
+
+.card-body{
+    padding-top: 2rem;
+    gap: 1rem;
+}
+
+.card-title{
+    color: rgb(175, 175, 175);
+}
+
+.card-body img{
+    height: 40px;
+    width: 40px;
+}
+
+.itemContainer{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------------------------- Media Query (Screen : Laptop) ---------------------------------------*/
+
+@media screen and (max-width:1125px) {
+    .itemContainer{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,6 @@
+.pieContainer{
+    height: 25rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

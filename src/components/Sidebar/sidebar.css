@@ -1,12 +1,19 @@
 .toggleContent{
     position: fixed;
-    width: 18rem;
+    width: 15rem;
     padding: 15px 20px;
     background-color: white;
     height: 100vh;
     box-shadow: 1px 0px 10px rgba(1, 10, 112, 0.4);
     transition: ease-in 1s;
     z-index:2;
+}
+
+.sidebarHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .title{
@@ -26,23 +33,40 @@
     display: none;
 }
 
+.li-item{
+    display: block;
+    text-align: center;
+    padding: 0.3rem 0rem;
+    width: 100%;
+    border-radius: 0.4rem;
+}
 
 section ul{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     margin-top: 8px;
-    padding-left: 0.6rem;
 }
 
 section ul li{
-    gap: 7px;
-    padding: 10px;
+    gap: 10px;
+    padding: 0.4rem 1.2rem;
     border-radius: 8px;
 }
 
-section ul li:hover{
+/* section ul li:hover{
     cursor: pointer;
     background-color: rgba(1, 10, 112, 0.3);
+} */
+
+.hoverEffect{
+    background-color:darkslateblue;
+    color: white;
 }
 
+.imageEffect{
+    filter: invert(100);
+}
 
 span{
     font-size: 1rem;

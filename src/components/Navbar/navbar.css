@@ -3,6 +3,17 @@
     width: 100%;
 }
 
+.logo{
+    font-size: 1.2rem;
+    color: darkslateblue;
+    font-weight: 900;
+}
+
+.logoContainer{
+    display: flex;
+    gap: 20px;
+}
+
 .inputSearch{
     width: 20rem;
     border: none;
@@ -56,4 +67,9 @@
 .containerNavbar{
     position:fixed;
     width: 100%;
+}
+
+.sideNavbar img{
+    height:30px;
+    width: 30px;
 }

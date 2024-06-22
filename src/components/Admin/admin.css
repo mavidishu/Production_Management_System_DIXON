@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    border: 1px groove rgb(81, 81, 81);
+    border: 1px groove darkslateblue;
     border-radius: 20px;
     width: 60%;
 }
@@ -14,7 +14,7 @@
     width: 100%;
     text-align: center;
     color: white;
-    background-color: rgb(81, 81, 81);
+    background-color:darkslateblue;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }

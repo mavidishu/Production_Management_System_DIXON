@@ -6,6 +6,17 @@ const app = express();
 
 const PORT  = 5000;
 
+app.use((req,res,next)=>{
+    // cors error resolved:
+    res.header('Access-Control-Allow-Origin', '*'); // or 'http://localhost:5000'
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept,auth-token'
+    );
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
+    next();
+  },express.json());// Middleware to get response body as json value.
+
 app.get("/",(req,res)=>{
     res.send("Welcome to Admin Dashboard Backend");
 })

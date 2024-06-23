@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import "./transactions.css";
+import UserContext from '../../context/user/UserContext';
 
 function Transactions() {
+  const context = useContext(UserContext);
+  const {transactions,getTransactions} = context;
+
+  useEffect(()=>{
+    getTransactions();
+  },[]);
+
   return (
     <section id="transactions">
       <div className="container my-3">
@@ -17,26 +25,19 @@ function Transactions() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>300</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>578</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colSpan="2">Larry the Bird</td>
-              <td>@twitter</td>
-              <td>800</td>
-            </tr>
+            {
+              transactions.map((item)=>{
+                return(
+                  <tr>
+                  <th scope="row">{item._id}</th>
+                  <th>{item.userId}</th>
+                  <td>{item.createdAt}</td>
+                  <td>{item.noOfProducts}</td>
+                  <td>{item.cost}</td>
+                </tr>
+                )
+              })
+            }
           </tbody>
         </table>
       </div>

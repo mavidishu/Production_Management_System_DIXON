@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useContext,useEffect } from 'react';
 import "./dashboard.css";
 import Barchart from "../Barchart/Barchart.jsx";
 import users from "../../assets/customers.png";
 import salesToday from "../../assets/salesToday.png";
-import monthlySales from "../../assets/monthlySales.png";
+import monthlySalesIcon from "../../assets/monthlySales.png";
 import product from "../../assets/product.png";
+import UserContext from '../../context/user/UserContext.jsx';
 
 function Dashboard() {
+  const context = useContext(UserContext);
+  const {user,products,getUser,getProduct,dailySales,getDailySales,monthlySales,getMonthlySales} = context;
+  useEffect(() => {
+    getUser();
+    getProduct();
+    getDailySales();
+    getMonthlySales();
+  }, [])
+  
   return (
     <section id="dashboard">
       <div className="bodyContainer">
@@ -21,7 +31,7 @@ function Dashboard() {
                   <img src={users} alt="" />
                   <div className="info">
                     <h5 className="card-title">Total Customers</h5>
-                    <p className="card-text">65510</p>
+                    <p className="card-text">{user.length}</p>
                   </div>
                 </div>
               </div>
@@ -30,7 +40,7 @@ function Dashboard() {
                   <img src={salesToday} alt="" />
                   <div className="info">
                     <h5 className="card-title">Daily Sales</h5>
-                    <p className="card-text">65510</p>
+                    <p className="card-text">{dailySales}</p>
                   </div>
                 </div>
               </div>
@@ -39,16 +49,16 @@ function Dashboard() {
                   <img src={product} alt="" />
                   <div className="info">
                     <h5 className="card-title">Total Product</h5>
-                    <p className="card-text">65510</p>
+                    <p className="card-text">{products.length}</p>
                   </div>
                 </div>
               </div>
               <div className="card" style={{ width: "14rem" }}>
                 <div className="card-body d-flex">
-                  <img src={monthlySales} alt="" />
+                  <img src={monthlySalesIcon} alt="" />
                   <div className="info">
                     <h5 className="card-title">Monthly Sales</h5>
-                    <p className="card-text">65510</p>
+                    <p className="card-text">{monthlySales}</p>
                   </div>
                 </div>
               </div>

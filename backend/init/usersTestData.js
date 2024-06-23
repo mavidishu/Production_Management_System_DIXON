@@ -255,8 +255,8 @@ const testUsers = [
       }
 ];
 
-let filler = ()=>{
-    User.deleteMany({});
+let filler = async()=>{
+    await User.deleteMany({});
     User.insertMany(testUsers).then(()=>{
         console.log("Test data inserted successfully.");
     }).catch((err)=>{

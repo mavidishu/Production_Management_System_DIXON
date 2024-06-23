@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const transactionSchema = new mongoose.Schema({
     userId:{
-        type:ObjectId
+        type:mongoose.Schema.Types.ObjectId,
     },
     createdAt:{
         type:Date,

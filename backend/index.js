@@ -22,6 +22,9 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/listings",require("./routes/usersRoute.js"));
+app.use("/products",require("./routes/productsRoute.js"));
+app.use("/transactions",require("./routes/transactionRoute.js"));
+
 // Listening to Server
 app.listen(PORT,()=>{
     console.log(`Admin dashboard server listening at port ${PORT}`);

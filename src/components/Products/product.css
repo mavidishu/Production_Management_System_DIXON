@@ -1,0 +1,15 @@
+.tableContainer{
+    padding: 1.3rem 1rem;
+    background-color: white;
+    border-radius: 0.75rem;
+}
+
+.tableHead{
+    color: darkslateblue !important;
+    font-size: 1.1rem !important;
+}
+
+.productTitle{
+    border-left: 10px groove darkslateblue;
+    padding-left: 6px;
+}

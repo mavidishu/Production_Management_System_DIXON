@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import faker from 'faker';
+import UserContext from '../../context/user/UserContext';
 
 ChartJS.register(
   CategoryScale,
@@ -33,24 +34,30 @@ export const options = {
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Electronics',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgb(255, 99, 132)',
-    },
-    {
-      label: 'Clothing',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgb(53, 162, 235)',
-    },
-  ],
-};
 
 export default function App() {
+  let context = useContext(UserContext);
+  let {yearSales,getYearSales} = context;
+
+  let data = {
+    labels,
+    datasets: [
+      {
+        label: 'Sales',
+        data: yearSales,
+        backgroundColor: 'darkslateblue',
+      },
+      {
+        label: 'Stock',
+        data: [8000,5000,3000,6000,10000,6500,4000,5000,3000,2500,1100,4500], //array od data corresponding to labels
+        backgroundColor: 'orange',
+      },
+    ],
+  }
+  useEffect(()=>{
+    getYearSales();
+  },[]);
   return <Bar options={options} data={data} />;
 }

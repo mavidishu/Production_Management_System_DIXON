@@ -1,16 +1,24 @@
 .bodyContainer{
+    width: 75%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
+
+.tilteDashboard{
+    border-left: 10px groove darkslateblue;
+    padding-left: 6px;
+}
+
 .chart{
-    border: 1px groove black;
     background-color: white;
-    width:90%;
+    width:100%;
     height: max-content;
-    padding: 1rem 1rem;
+    padding: 3rem 3rem;
     border-radius: 0.7rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 .card{
@@ -18,12 +26,13 @@
 }
 
 .card-body{
-    padding-top: 2rem;
+    padding: 1.5rem 0;
     gap: 1rem;
 }
 
 .card-title{
-    color: rgb(175, 175, 175);
+    font-size: 1.04rem;
+    color: rgba(0, 6, 68, 1);
 }
 
 .card-body img{
@@ -34,10 +43,17 @@
 .itemContainer{
     display: flex;
     gap: 1rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    /* z-index:0; */
+}
 /* -------------------------------------------- Media Query (Screen : Laptop) ---------------------------------------*/
 
 @media screen and (max-width:1125px) {

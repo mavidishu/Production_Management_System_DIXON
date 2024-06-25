@@ -58,15 +58,15 @@ export const data = {
     {
       label: 'Total Units',
       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'orange',
+      backgroundColor: 'orange',
       yAxisID: 'y',
     },
     {
       label: 'Total Sales',
       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgb(53, 162, 235)',
+      borderColor: 'darkslateblue',
+      backgroundColor: 'darkslateblue',
       yAxisID: 'y1',
     },
   ],
@@ -77,7 +77,7 @@ function Daily() {
   return (
     <section id='daily'>
       <div className="container">
-        <h3>Daily Sales</h3>
+        <h3 className='dailyTitle'>Daily Sales</h3>
         <div className="mx-3 chartContainer my-3">
           <Line options={options} data={data} />
         </div>

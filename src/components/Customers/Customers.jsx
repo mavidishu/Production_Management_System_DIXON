@@ -8,54 +8,57 @@ function Customers() {
   const {user,getUser} = context;
   useEffect(()=>{
     getUser();
-  },[])
+  },[]);
+
   return (
     <section id="customers">
       <div className="container">
 
-      <h3 className="my-3">Registered Customers</h3>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Customer Name</th>
-            <th scope="col">Mobile No</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">6678443a5ba2ada308b303e1</th>
-            <td>Ram Sharma</td>
-            <td>8727392010</td>
-            <td>ramsharma9090@gmail.com</td>
-          </tr>
-          <tr>
-            <th scope="row">6678443a5ba2ada308b303e2</th>
-            <td>Hardeep Singhania</td>
-            <td>2310928490</td>
-            <td>hardeepTred@gmail.com</td>
-          </tr>
-          <tr>
-            <th scope="row">6678443a5ba2ada308b303e3</th>
-            <td>Rohan Chechi</td>
-            <td>8989456788</td>
-            <td>rohanch99@gmail.com</td>
-          </tr>
-          {
-            user.map((user)=>{
-              return(
-                <tr>
-                  <th scope="row">{user._id}</th>
-                  <td>{user.userName}</td>
-                  <td>{user.mobileNo}</td>
-                  <td>{user.userEmail}</td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
+        <h3 className="my-3 customerTitle">Registered Customers</h3>
+        <div className="tableContainer">
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col" className="tableHead">Id</th>
+                <th scope="col" className="tableHead">Customer Name</th>
+                <th scope="col" className="tableHead">Mobile No</th>
+                <th scope="col" className="tableHead">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">6678443a5ba2ada308b303e1</th>
+                <td>Ram Sharma</td>
+                <td>8727392010</td>
+                <td>ramsharma9090@gmail.com</td>
+              </tr>
+              <tr>
+                <th scope="row">6678443a5ba2ada308b303e2</th>
+                <td>Hardeep Singhania</td>
+                <td>2310928490</td>
+                <td>hardeepTred@gmail.com</td>
+              </tr>
+              <tr>
+                <th scope="row">6678443a5ba2ada308b303e3</th>
+                <td>Rohan Chechi</td>
+                <td>8989456788</td>
+                <td>rohanch99@gmail.com</td>
+              </tr>
+              {
+                user.map((user)=>{
+                  return(
+                    <tr>
+                      <th scope="row">{user._id}</th>
+                      <td>{user.userName}</td>
+                      <td>{user.mobileNo}</td>
+                      <td>{user.userEmail}</td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

@@ -17,14 +17,6 @@ a{
     color: black;
 }
 
-#product, #customers,#transactions,#daily,#breadkdown,#admin,#dashboard{
+#product, #customers,#transactions,#daily,#breadkdown,#admin,#dashboard,#overview,#monthly{
     margin-top: 80px;
-}
-
-.cardContainer{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(2,1fr);
-    z-index:0;
-    gap: 20px;
 }

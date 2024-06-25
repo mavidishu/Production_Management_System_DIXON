@@ -20,15 +20,14 @@ function Dashboard() {
   return (
     <section id="dashboard">
       <div className="bodyContainer">
-        <div className="container">
-          <h1 className="my-3">Dashboard</h1>
+          <h2 className="my-3 tilteDashboard">Dashboard</h2>
           <p className="">Welcome Aditya Roy</p>
 
           <div className="itemContainer">
             <div className="cardContainer">
               <div className="card" style={{ width: "14rem" }}>
                 <div className="card-body d-flex">
-                  <img src={users} alt="" />
+                  <img src={users} draggable={false} alt="" />
                   <div className="info">
                     <h5 className="card-title">Total Customers</h5>
                     <p className="card-text">{user.length}</p>
@@ -37,7 +36,7 @@ function Dashboard() {
               </div>
               <div className="card" style={{ width: "14rem" }}>
                 <div className="card-body d-flex">
-                  <img src={salesToday} alt="" />
+                  <img src={salesToday} draggable={false} alt="" />
                   <div className="info">
                     <h5 className="card-title">Daily Sales</h5>
                     <p className="card-text">{dailySales}</p>
@@ -46,7 +45,7 @@ function Dashboard() {
               </div>
               <div className="card" style={{ width: "14rem" }}>
                 <div className="card-body d-flex">
-                  <img src={product} alt="" />
+                  <img src={product} draggable={false} alt="" />
                   <div className="info">
                     <h5 className="card-title">Total Product</h5>
                     <p className="card-text">{products.length}</p>
@@ -55,7 +54,7 @@ function Dashboard() {
               </div>
               <div className="card" style={{ width: "14rem" }}>
                 <div className="card-body d-flex">
-                  <img src={monthlySalesIcon} alt="" />
+                  <img src={monthlySalesIcon} draggable={false} alt="" />
                   <div className="info">
                     <h5 className="card-title">Monthly Sales</h5>
                     <p className="card-text">{monthlySales}</p>
@@ -68,8 +67,6 @@ function Dashboard() {
               <Barchart />
             </div>
           </div>
-
-        </div>
       </div>
     </section>
   )

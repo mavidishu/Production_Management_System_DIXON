@@ -12,7 +12,7 @@ function Navbar() {
         <div className="container-fluid">
           <div className="logoContainer">
             <a className="logo" href="/">Admin Dashboard</a>
-            <img className="hamburger-icon" src={menu} />
+            <img className="hamburger-icon" draggable={false} src={menu} />
           </div>
           <form className="d-flex" role="search">
             <input
@@ -20,15 +20,15 @@ function Navbar() {
               placeholder="Search"
             />
             <button className="btn searchBtn" type="submit">
-              <img src={searchIcon}/>
+              <img draggable={false} src={searchIcon}/>
             </button>
           </form>
 
           <div className="sideNavbar">
             <div className="utilityTools">
-              <img src={darkThemeIcon} alt="" />
+              <img draggable={false} src={darkThemeIcon} alt="" />
             </div>
-            <img src={profile} alt="profileImage" />
+            <img draggable={false} src={profile} alt="profileImage" />
           </div>
         </div>
       </nav>

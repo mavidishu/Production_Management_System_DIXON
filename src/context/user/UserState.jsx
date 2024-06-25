@@ -12,6 +12,7 @@ const UserState = (props)=>{
     const [transactions,setTransaction] = useState(transactionsInitial);
     const [dailySales,setDailySales] = useState(0);
     const [monthlySales,setMonthlySales] = useState(0);
+    const [yearSales,setYearSales] = useState([]);
     // API CALL - get all users using GET
     const getUser = async()=>{
         const response = await fetch("http://localhost:5000/listings/user",{
@@ -22,7 +23,6 @@ const UserState = (props)=>{
             }
         });
         const jsonUser = await response.json();
-        console.log(jsonUser);
         setUser(jsonUser);
     }
 
@@ -36,7 +36,6 @@ const UserState = (props)=>{
             }
         });
         const jsonProduct = await response.json();
-        console.log(jsonProduct);
         setProduct(jsonProduct);
     }
 
@@ -50,7 +49,6 @@ const UserState = (props)=>{
             }
         });
         const jsonTransaction = await response.json();
-        console.log(jsonTransaction);
         setTransaction(jsonTransaction);
     }
 
@@ -64,7 +62,6 @@ const UserState = (props)=>{
             }
         });
         const jsonDaily = await response.json();
-        console.log(jsonDaily);
         setDailySales(jsonDaily);
     }
 
@@ -78,11 +75,24 @@ const UserState = (props)=>{
             }
         });
         const jsonMonthly = await response.json();
-        console.log(jsonMonthly);
         setMonthlySales(jsonMonthly);
     }
+
+    // API CALL - get whole year sales in 12 month format using GET
+    const getYearSales = async()=>{
+        const response = await fetch("http://localhost:5000/transactions/year",{
+            method:'GET',
+            headers:{
+                "Content-Type":"application/json",
+            }
+        });
+
+        const jsonYear = await response.json();
+        setYearSales(jsonYear);
+    }
+
     return(
-        <UserContext.Provider value={{user,getUser,products,getProduct,transactions,getTransactions,dailySales,getDailySales,monthlySales,getMonthlySales}}>
+        <UserContext.Provider value={{user,getUser,products,getProduct,transactions,getTransactions,dailySales,getDailySales,monthlySales,getMonthlySales,yearSales,getYearSales}}>
             {props.children}
         </UserContext.Provider>
     )

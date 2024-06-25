@@ -3,7 +3,11 @@ import "./monthly.css";
 
 function Monthly() {
   return (
-    <div>Monthly</div>
+    <section id="monthly">
+      <div className="container">
+        <h3 className='monthlyTitle'>Monthly Overview</h3>
+      </div>
+    </section>
   )
 }
 

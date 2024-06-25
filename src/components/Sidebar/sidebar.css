@@ -34,11 +34,13 @@
 }
 
 .li-item{
-    display: block;
-    text-align: center;
-    padding: 0.3rem 0rem;
-    width: 100%;
-    border-radius: 0.4rem;
+    display: flex;
+    padding-left: 1.4rem;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 0.4rem 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 section ul{
@@ -76,4 +78,15 @@ span{
 ul li small{
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+.backIcon{
+    padding: 5px 0px;
+    background-color: rgb(193, 211, 255);
+    border-radius: 3px;
+}
+
+.img-small{
+    height: 19px !important;
+    width:  19px !important;
 }

@@ -1,4 +1,31 @@
 const mongoose = require("mongoose");
+const Product = require("./Products");
+
+const productSchema = new mongoose.Schema({
+    productName:{
+        type:String,
+        required:true
+    },
+    productCategory:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    warrantyStatus:{
+        type:String
+    },
+    payOnDelivery:{
+        type:Boolean,
+    },
+    registeredDate:{
+        type:Date,
+        default:Date.now
+    }
+});
+
 
 const transactionSchema = new mongoose.Schema({
     userId:{
@@ -12,6 +39,7 @@ const transactionSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    productList:[productSchema],
     cost:{
         type:Number,
         required:true

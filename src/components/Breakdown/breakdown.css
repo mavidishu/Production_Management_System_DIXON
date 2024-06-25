@@ -1,6 +1,16 @@
+.containerBreakdown{
+    width: 70%;
+    margin: 0 auto;
+}
+
 .pieContainer{
-    height: 25rem !important;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 30rem !important;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.breakdownTitle{
+    border-left: 10px groove darkslateblue;
+    padding-left: 6px;
 }

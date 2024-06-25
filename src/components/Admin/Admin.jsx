@@ -13,28 +13,28 @@ function Admin() {
           <div className="card-body">
             <table className="table">
               <tbody>
-                <tr>
+                <tr className="tableRow">
                   <th>Name</th>
                   <td>Aditya Roy</td>
                 </tr>
-                <tr>
-                  <th>Email Address</th>
+                <tr className="tableRow">
+                  <th  >Email Address</th>
                   <td>adityaroy997@gmail.com</td>
                 </tr>
-                <tr>
-                  <th>Work Email Address</th>
+                <tr className="tableRow">
+                  <th  >Work Email Address</th>
                   <td>adityaroy@dev.amazon.com</td>
                 </tr>
-                <tr>
-                  <th>Contact Number</th>
+                <tr className="tableRow">
+                  <th  >Contact Number</th>
                   <td>+91 6152789810</td>
                 </tr>
-                <tr>
-                  <th>Role</th>
+                <tr className="tableRow">
+                  <th  >Role</th>
                   <td>Administrator - SDE</td>
                 </tr>
-                <tr>
-                  <th>Gender</th>
+                <tr className="tableRow">
+                  <th  >Gender</th>
                   <td>Male</td>
                 </tr>
               </tbody>

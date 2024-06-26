@@ -13,6 +13,9 @@ const UserState = (props)=>{
     const [dailySales,setDailySales] = useState(0);
     const [monthlySales,setMonthlySales] = useState(0);
     const [yearSales,setYearSales] = useState([]);
+    const [productCategoryResult,setProductCategoryResult] = useState();//labels
+    const [productCategory,setProductCategory] = useState(); //count of products wrt labels
+
     // API CALL - get all users using GET
     const getUser = async()=>{
         const response = await fetch("http://localhost:5000/listings/user",{
@@ -91,8 +94,23 @@ const UserState = (props)=>{
         setYearSales(jsonYear);
     }
 
+    // API CALL - get product count wrt product category using GET
+    const getProductCategory = async()=>{
+        const response = await fetch("http://localhost:5000/products/count",{
+            method:'GET',
+            headers:{
+                "Content-Type":"application/json",
+            }
+        });
+
+        const jsonProductCategory = await response.json();
+        //respose -> result + categoryCount
+        console.log(jsonProductCategory);
+        setProductCategory(jsonProductCategory.result);
+        setProductCategoryResult(jsonProductCategory.category);
+    }
     return(
-        <UserContext.Provider value={{user,getUser,products,getProduct,transactions,getTransactions,dailySales,getDailySales,monthlySales,getMonthlySales,yearSales,getYearSales}}>
+        <UserContext.Provider value={{user,getUser,products,getProduct,transactions,getTransactions,dailySales,getDailySales,monthlySales,getMonthlySales,yearSales,getYearSales,productCategory,getProductCategory,productCategoryResult}}>
             {props.children}
         </UserContext.Provider>
     )

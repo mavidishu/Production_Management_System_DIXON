@@ -5,27 +5,35 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    productCategory:{
-        type:String,
+    auditDate:{
+        type:Date,
+        required:true
+    },
+    targetDate:{
+        type:Date,
+        required:true
+    },
+    production:{
+        type:Number,
         required:true
     },
     productDetails:{
         type:String,
         required:true
     },
-    price:{
+    productPrice:{
         type:Number,
         required:true
     },
-    warrantyStatus:{
+    workInstruction:{//link
+        type:String,
+    },
+    budget:{
+        type:Number,
+        required:true
+    },
+    status:{
         type:String
-    },
-    payOnDelivery:{
-        type:Boolean,
-    },
-    registeredDate:{
-        type:Date,
-        default:Date.now
     }
 });
 

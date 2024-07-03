@@ -6,7 +6,7 @@ import linkedinLogo from "../../assets/linkedin.png";
 
 function Footer() {
   return (
-    <section id='footer'>
+    <section id='footer' className=''>
         <div className="footerContainer d-flex">
             <div className="designContainer">
                 <p>Website by <span className='author'>Dishu Mavi</span></p>

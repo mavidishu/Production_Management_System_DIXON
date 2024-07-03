@@ -13,28 +13,15 @@ router.get("/items",async(req,res)=>{
     }
 });
 
-// Fetch CategoryWise
-router.get('/count', async (req, res) => {
-    try {
-      const categoryCounts = await Products.aggregate([
-        {
-          $group: {
-            _id: "$productCategory",
-            count: { $sum: 1 }
-          }
-        }
-      ]);
-      let result = [];
-      let category = [];
-      let count1=0,count2=0;
-      for(let field of categoryCounts){
-        result[count1++] = field.count;
-        category[count2++] = field._id;
-      }
-      res.json({result,category});
-    } catch (err) {
-      res.status(500).send(err);
+// Fetch Particular Product:
+router.get('/items/:id', async(req,res)=>{
+    try{
+        let id = req.params.id;
+        const product = await Products.findById(id);
+        res.json(product);
+    }catch(err){
+        console.log(err);
     }
-  });
+})
 
 module.exports = router;

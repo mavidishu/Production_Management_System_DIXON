@@ -13,7 +13,7 @@ import back from "../../assets/back.png";
 import "./sidebar.css";
 import { Link, useLocation } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({toggleSidebar}) {
   let location = useLocation();
   useEffect(() => {});
 
@@ -25,7 +25,7 @@ function Sidebar() {
           Dixon Technologies
         </a>
         <div className="backIcon">
-          <img draggable={false} className="cross-icon" src={back} />
+          <img draggable={false} className="cross-icon" src={back} onClick={toggleSidebar}/>
         </div>
       </div>
       <div>

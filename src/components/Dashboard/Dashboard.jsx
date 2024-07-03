@@ -6,42 +6,41 @@ import salesToday from "../../assets/salesToday.png";
 import monthlySalesIcon from "../../assets/monthlySales.png";
 import product from "../../assets/product.png";
 import UserContext from "../../context/user/UserContext.jsx";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Dashboard() {
   const context = useContext(UserContext);
+  let params = useParams();
+
   const {
     user,
     products,
     getUser,
     getProduct,
-    dailySales,
-    getDailySales,
-    monthlySales,
-    getMonthlySales,
+    productOne,
+    getParticularProduct,
   } = context;
   const [time, setTime] = useState(new Date());
+  let productId = params.id;
 
   useEffect(() => {
     getUser();
     getProduct();
-    getDailySales();
-    getMonthlySales();
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    // Cleanup interval on component unmount
-    return () => clearInterval(timer);
-  }, []);
+    getParticularProduct(productId);
+  },[]);
 
   const formatDate = (date) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     return date.toLocaleDateString(undefined, options);
-};
+  };
   const hours = time.getHours().toString().padStart(2, "0");
   const minutes = time.getMinutes().toString().padStart(2, "0");
   const seconds = time.getSeconds().toString().padStart(2, "0");
-
   return (
     <section id="dashboard">
       <div className="bodyContainer my-3">
@@ -52,43 +51,55 @@ function Dashboard() {
           <div className="modelCard" style={{ width: "100%" }}>
             <div className="modelContainer">
               <h5 className="">Production :</h5>
-              <h5 className="">Samsung MX555</h5>
+              <h5 className="">{productOne.productName}</h5>
             </div>
             <div className="timeContainer">
-              {formatDate(time)} <span id="seprator">|</span>
-              {hours}:{minutes}:{seconds}</div>
+              <Date/>
+            </div>
           </div>
 
           <div className="cardContainer">
-            <div className="card" style={{ width: "13rem", backgroundColor:"black" }}>{/*MEDIUM SLATE BLUE */}
+            <div
+              className="card"
+              style={{ width: "13rem", backgroundColor: "black" }}
+            >
               <div className="card-body d-flex">
                 <div className="info">
                   <h5 className="card-title">Target</h5>
-                  <p className="card-text">{user.length}</p>
+                  <p className="card-text">{productOne.production}</p>
                 </div>
               </div>
             </div>
-            <div className="card" style={{ width: "13rem", backgroundColor:"black" }}>{/* SALE BLUE */}
+            <div
+              className="card"
+              style={{ width: "13rem", backgroundColor: "black" }}
+            >
               <div className="card-body d-flex">
                 <div className="info">
                   <h5 className="card-title">Input Stock</h5>
-                  <p className="card-text">{dailySales}</p>
+                  <p className="card-text">109203</p>
                 </div>
               </div>
             </div>
-            <div className="card" style={{ width: "13rem", backgroundColor:"black" }}>{/*TEAL*/}
+            <div
+              className="card"
+              style={{ width: "13rem", backgroundColor: "black" }}
+            >
               <div className="card-body d-flex">
                 <div className="info">
                   <h5 className="card-title">Production</h5>
-                  <p className="card-text">{products.length}</p>
+                  <p className="card-text">2009</p>
                 </div>
               </div>
             </div>
-            <div className="card" style={{ width: "13rem", backgroundColor:"black" }}>
+            <div
+              className="card"
+              style={{ width: "13rem", backgroundColor: "black" }}
+            >
               <div className="card-body d-flex">
                 <div className="info">
                   <h5 className="card-title">Time Required</h5>
-                  <p className="card-text">{monthlySales} hours</p>
+                  <p className="card-text">{Math.round((productOne.production)/375)} hours (approx)</p>
                 </div>
               </div>
             </div>
@@ -96,13 +107,20 @@ function Dashboard() {
 
           <div className="container" style={{ width: "100%" }}>
             <div className="d-flex justify-content-end">
-              <div className="mx-3"><span className="fw-bold">Audit Date :</span> 20 May 2024</div>
-              <div><span className="fw-bold">Target Date :</span> 20 June 2024</div>
+              <div className="mx-3">
+                <span className="fw-bold">Audit Date :</span>
+                {productOne.auditDate}
+              </div>
+              <div>
+                <span className="fw-bold">Target Date :</span>
+                {productOne.targetDate}
+              </div>
             </div>
           </div>
-
-          <div className="chart">
-            <Barchart />
+          <hr className="divider"/>
+          {/* <div className="chart"><Barchart /></div> */}
+          <div className="planContainer">
+            <h5>Plan For the Day</h5>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
@@ -14,47 +14,24 @@ import Breakdown from "./components/Breakdown/Breakdown.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import UserState from "./context/user/UserState.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import Login from "./components/Login/Login.jsx";
 
 function App() {
-  useEffect(() => {
-    const hamburgerIcon = document.querySelector(".hamburger-icon");
-    const crossIcon = document.querySelector(".cross-icon");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const content = document.querySelector(".toggleContent");
-    const openSidebar = () =>{
-      content.classList.toggle('hidden');
-    };
-    const closeSidebar = () =>{
-      content.classList.toggle('hidden');
-    }
-
-    if (hamburgerIcon) {
-      hamburgerIcon.addEventListener("click", openSidebar);
-    }
-
-    if (crossIcon) {
-      crossIcon.addEventListener("click", closeSidebar);
-    }
-
-    // Cleanup function to remove event listeners
-    return () => {
-      if (hamburgerIcon) {
-        hamburgerIcon.removeEventListener("click", openSidebar);
-      }
-      if (crossIcon) {
-        crossIcon.removeEventListener("click", closeSidebar);
-      }
-    };
-  }, []);
+  const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <UserState>
       <Router>
       <div className="d-flex">
-        <Sidebar />
+        {isSidebarOpen&&<Sidebar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen}/>}
         <div className="body">
-          <Navbar />
+          <Navbar toggleSidebar={toggleSidebar}/>
               <Routes>
-                <Route path="/" element={<Dashboard/>}></Route>
+                <Route path="/" element={<Login/>}></Route>
+                <Route path="/product/view/:id" element={<Dashboard/>}></Route>
                 <Route path="/products" element={<Product/>}></Route>
                 <Route path="/customers" element={<Customers/>}></Route>
                 <Route path="/transactions" element={<Transactions/>}></Route>

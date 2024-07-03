@@ -54,6 +54,16 @@
     gap: 1vw;
     /* z-index:0; */
 }
+
+.modelContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modelContainer h5{
+    font-size: 1.5rem;
+}
 /* -------------------------------------------- Media Query (Screen : Laptop) ---------------------------------------*/
 
 @media screen and (max-width:1125px) {

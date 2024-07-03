@@ -1,0 +1,29 @@
+.footerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: black;
+    padding: 1.5rem 3rem;
+}
+
+.footerContainer p{
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+
+.infoContainer{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#seprator{
+    margin: 0 10px;
+}
+
+.author{
+    color: orange;
+    font-size: 0.8rem;
+}

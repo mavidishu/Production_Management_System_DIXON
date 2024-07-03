@@ -40,18 +40,18 @@ const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','
 export default function App() {
   let context = useContext(UserContext);
   let {yearSales,getYearSales} = context;
-
+  console.log(yearSales);
   let data = {
     labels,
     datasets: [
       {
-        label: 'Sales',
+        label: 'Production',
         data: yearSales,
         backgroundColor: 'darkslateblue',
       },
       {
         label: 'Stock',
-        data: [8000,5000,3000,6000,10000,6500,4000,5000,3000,2500,1100,4500], //array od data corresponding to labels
+        data: [2300,1200,1700,650,500,1000,1000,1100,1600,3000,2200,2000], //array of data [order placed by company]
         backgroundColor: 'orange',
       },
     ],

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import cart from "../../assets/cart.png";
 import group from "../../assets/group.png";
 import bill from "../../assets/bill.png";
@@ -15,83 +15,185 @@ import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
   let location = useLocation();
-  useEffect(()=>{
-  })
-  
-  let handleClick = ()=>{
-    
-  }
+  useEffect(() => {});
+
+  let handleClick = () => {};
   return (
     <div className="toggleContent">
       <div className="sidebarHeader">
         <a className="navbar-brand logo" href="/">
-          Admin Dashboard
+          Dixon Technologies
         </a>
         <div className="backIcon">
-          <img draggable={false} className="cross-icon" src={back}/>
+          <img draggable={false} className="cross-icon" src={back} />
         </div>
       </div>
-        <div className="sectionContainer">
-          <section>
-            <span className={`li-item ${location.pathname=='/'?'hoverEffect':''}`}>
-              <img src={dashboardIcon} className={`${location.pathname=='/'?'imageEffect':''}`} alt="" />
-              <Link to="/" className={`${location.pathname=='/'?'hoverEffect':''}`}>Dashboard</Link>
-            </span>
-          </section>
-          <section id="clientfacing">
-            <span>Client Facing</span>
-            <ul>
-              <li className={`d-flex ${location.pathname=='/products'?'hoverEffect':''}`} onClick={handleClick}>
-                <img draggable={false} src={cart} className={`${location.pathname=='/products'?'imageEffect':''}`}alt=""/>
-                <small><Link to="/products" className={`${location.pathname=='/products'?'hoverEffect':''}`}>Products</Link></small>
-              </li>
-              <li className={`d-flex ${location.pathname=='/customers'?'hoverEffect':''}`}>
-                <img draggable={false} src={group} className={`${location.pathname=='/customers'?'imageEffect':''}`}alt="" />
-                <small><Link to="/customers" className={`${location.pathname=='/customers'?'hoverEffect':''}`}>Customers</Link></small>
-              </li>
-              <li className={`d-flex ${location.pathname=='/transactions'?'hoverEffect':''}`} >
-                <img draggable={false} src={bill} className={`${location.pathname=='/transactions'?'imageEffect':''}`} alt="" />
-                <small><Link to="/transactions" className={`${location.pathname=='/transactions'?'hoverEffect':''}`}>Transactions</Link></small>
-              </li>
-            </ul>
-          </section>
-          <section id="sales">
-            <span>Sales</span>
-            <ul>
-              <li className={`d-flex  ${location.pathname=='/overview'?'hoverEffect':''}`}>
-                <img draggable={false} src={computer} className={`img-small ${location.pathname=='/overview'?'imageEffect':''}`} alt="" />
-                <small><Link to="/overview" className={`${location.pathname=='/overview'?'hoverEffect':''}`}>Overview</Link></small>
-              </li>
-              <li className={`d-flex ${location.pathname=='/daily'?'hoverEffect':''}`}>
-                <img draggable={false} src={daily} className={`img-small ${location.pathname=='/daily'?'imageEffect':''}`} alt="" />
-                <small><Link to="/daily" className={`${location.pathname=='/daily'?'hoverEffect':''}`}>Daily</Link></small>
-              </li>
-              {/* <li className={`d-flex ${location.pathname=='/monthly'?'hoverEffect':''}`}>
+      <div>
+        <section className="sectionContainer">
+          <ul>
+            <li
+              className={`d-flex ${
+                location.pathname == "/" ? "hoverEffect" : ""
+              }`}
+              onClick={handleClick}
+            >
+              <Link
+                to="/"
+                className={`${location.pathname == "/" ? "hoverEffect" : ""}`}
+              >
+                <img
+                  src={dashboardIcon}
+                  className={`${location.pathname == "/" ? "imageEffect" : ""}`}
+                  alt=""
+                />
+                Dashboard
+              </Link>
+            </li>
+            <li
+              className={`d-flex ${
+                location.pathname == "/products" ? "hoverEffect" : ""
+              }`}
+              onClick={handleClick}
+            >
+              <Link
+                to="/products"
+                className={`${
+                  location.pathname == "/products" ? "hoverEffect" : ""
+                }`}
+              >
+                <img
+                  draggable={false}
+                  src={cart}
+                  className={`${
+                    location.pathname == "/products" ? "imageEffect" : ""
+                  }`}
+                  alt=""
+                />
+                Products
+              </Link>
+            </li>
+            <li
+              className={`d-flex ${
+                location.pathname == "/customers" ? "hoverEffect" : ""
+              }`}
+            >
+              <Link
+                to="/customers"
+                className={`${
+                  location.pathname == "/customers" ? "hoverEffect" : ""
+                }`}
+              >
+                <img
+                  draggable={false}
+                  src={group}
+                  className={`${
+                    location.pathname == "/customers" ? "imageEffect" : ""
+                  }`}
+                  alt=""
+                />
+                Customers
+              </Link>
+            </li>
+            <li
+              className={`d-flex ${
+                location.pathname == "/transactions" ? "hoverEffect" : ""
+              }`}
+            >
+              <Link
+                to="/transactions"
+                className={`${
+                  location.pathname == "/transactions" ? "hoverEffect" : ""
+                }`}
+              >
+                <img
+                  draggable={false}
+                  src={bill}
+                  className={`${
+                    location.pathname == "/transactions" ? "imageEffect" : ""
+                  }`}
+                  alt=""
+                />
+                Transactions
+              </Link>
+            </li>
+            <li
+              className={`d-flex  ${
+                location.pathname == "/overview" ? "hoverEffect" : ""
+              }`}
+            >
+              <Link
+                to="/overview"
+                className={`${
+                  location.pathname == "/overview" ? "hoverEffect" : ""
+                }`}
+              >
+                <img
+                  draggable={false}
+                  src={computer}
+                  className={`img-small ${
+                    location.pathname == "/overview" ? "imageEffect" : ""
+                  }`}
+                  alt=""
+                />
+                Overview
+              </Link>
+            </li>
+            <li
+              className={`d-flex ${
+                location.pathname == "/daily" ? "hoverEffect" : ""
+              }`}
+            >
+              <Link
+                to="/daily"
+                className={`${
+                  location.pathname == "/daily" ? "hoverEffect" : ""
+                }`}
+              >
+                <img
+                  draggable={false}
+                  src={daily}
+                  className={`img-small ${
+                    location.pathname == "/daily" ? "imageEffect" : ""
+                  }`}
+                  alt=""
+                />
+                Daily Production
+              </Link>
+            </li>
+            {/* <li className={`d-flex ${location.pathname=='/monthly'?'hoverEffect':''}`}>
                 <img draggable={false} src={monthly}className={`img-small ${location.pathname=='/monthly'?'imageEffect':''}`} alt="" />
-                <small><Link to="/monthly" className={`${location.pathname=='/monthly'?'hoverEffect':''}`}>Monthly</Link></small>
+                <Link to="/monthly" className={`${location.pathname=='/monthly'?'hoverEffect':''}`}>Monthly</Link>
               </li> */}
-              <li className={`d-flex ${location.pathname=='/breakdown'?'hoverEffect':''}`}>
-                <img draggable={false} src={breakdown} className={`img-small ${location.pathname=='/breakdown'?'imageEffect':''}`} alt="" />
-                <small><Link to="/breakdown" className={`${location.pathname=='/breakdown'?'hoverEffect':''}`}>Breakdown</Link></small>
-              </li>
-            </ul>
-          </section>
-          <section id="management">
-            <span>Management</span>
-            <ul>
-              <li className={`d-flex ${location.pathname=='/admin'?'hoverEffect':''}`}>
-                <img draggable={false} src={admin} className={`${location.pathname=='/admin'?'imageEffect':''}`} alt="" />
-                <small><Link to="/admin" className={`${location.pathname=='/admin'?'hoverEffect':''}`}>Admin</Link></small>
-              </li>
-              <li className={`d-flex ${location.pathname=='/performance'?'hoverEffect':''}`}>
-                <img draggable={false} src={performance} className={`${location.pathname=='/preformance'?'imageEffect':''}`} alt="" />
-                <small className={`${location.pathname=='/performance'?'hoverEffect':''}`}>Performance</small>
-              </li>
-            </ul>
-          </section>
-        </div>
+            <li
+              className={`d-flex ${
+                location.pathname == "/breakdown" ? "hoverEffect" : ""
+              }`}
+            >
+              <Link
+                to="/breakdown"
+                className={`${
+                  location.pathname == "/breakdown" ? "hoverEffect" : ""
+                }`}
+              >
+                <img
+                  draggable={false}
+                  src={breakdown}
+                  className={`img-small ${
+                    location.pathname == "/breakdown" ? "imageEffect" : ""
+                  }`}
+                  alt=""
+                />
+                Breakdown
+              </Link>
+            </li>
+          </ul>
+        </section>
       </div>
-  )
+      <div className="prodcnName">
+        <p>Samsung Productions</p>
+      </div>
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;

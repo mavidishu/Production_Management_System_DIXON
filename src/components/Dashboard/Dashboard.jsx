@@ -20,10 +20,17 @@ function Dashboard() {
   return (
     <section id="dashboard">
       <div className="bodyContainer">
-          <h2 className="my-3 tilteDashboard">Dashboard</h2>
-          <p className="">Welcome Aditya Roy</p>
+          {/* <h2 className="my-3 tilteDashboard">Dashboard</h2>
+          <p className="">Welcome Aditya Roy</p> */}
 
           <div className="itemContainer">
+            <div className="card" style={{}}>
+              <div className="card-body modelContainer">
+                <h5 className="">Model :</h5>
+                <h5 className="">Samsung MX555</h5>
+              </div>
+            </div>
+
             <div className="cardContainer">
               <div className="card" style={{ width: "14rem" }}>
                 <div className="card-body d-flex">

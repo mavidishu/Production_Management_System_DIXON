@@ -11,7 +11,7 @@ function Navbar() {
       <nav className="header navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <div className="logoContainer">
-            <a className="logo" href="/">Admin Dashboard</a>
+            <a className="logo" href="/">Dixon Technologies</a>
             <img className="hamburger-icon" draggable={false} src={menu} />
           </div>
           <form className="d-flex" role="search">
@@ -26,9 +26,9 @@ function Navbar() {
 
           <div className="sideNavbar">
             <div className="utilityTools">
-              <img draggable={false} src={darkThemeIcon} alt="" />
+              <a href="#">info@dixontech.com</a>
             </div>
-            <img draggable={false} src={profile} alt="profileImage" />
+            <a href="#" className="loginBtn">Login</a>
           </div>
         </div>
       </nav>

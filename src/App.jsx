@@ -13,6 +13,7 @@ import Monthly from "./components/Monthly/Monthly.jsx";
 import Breakdown from "./components/Breakdown/Breakdown.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import UserState from "./context/user/UserState.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   useEffect(() => {
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/breakdown" element={<Breakdown/>}></Route>
                 <Route path="/admin" element={<Admin/>}></Route>
               </Routes>
+          <Footer/>
         </div>
       </div>
       </Router>

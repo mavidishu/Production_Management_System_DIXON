@@ -29,7 +29,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Monthly Sales Chart',
+      text: 'FY - 24 Production Overview',
     },
   },
 };

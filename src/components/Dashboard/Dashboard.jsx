@@ -27,7 +27,7 @@ function Dashboard() {
     getUser();
     getProduct();
     getParticularProduct(productId);
-  },[]);
+  }, []);
 
   const formatDate = (date) => {
     const options = {
@@ -54,7 +54,7 @@ function Dashboard() {
               <h5 className="">{productOne.productName}</h5>
             </div>
             <div className="timeContainer">
-              <Date/>
+              <Date />
             </div>
           </div>
 
@@ -99,7 +99,7 @@ function Dashboard() {
               <div className="card-body d-flex">
                 <div className="info">
                   <h5 className="card-title">Time Required</h5>
-                  <p className="card-text">{Math.round((productOne.production)/375)} hours (approx)</p>
+                  <p className="card-text">{Math.round((productOne.production) / 375)} hours (approx)</p>
                 </div>
               </div>
             </div>
@@ -117,10 +117,47 @@ function Dashboard() {
               </div>
             </div>
           </div>
-          <hr className="divider"/>
+          <hr className="divider" />
           {/* <div className="chart"><Barchart /></div> */}
           <div className="planContainer">
-            <h5>Plan For the Day</h5>
+            <h5 class="text-center">Plan For the Day</h5>
+            <form>
+              <div class="row">
+                <div class=" mb-3">
+                  <label htmlFor="target" class="form-label" >Target of the day</label>
+                  <input type="number" class="form-control" id="target" placeholder="" aria-label="Target For the Day" />
+                </div>
+                <div class="">
+                  <label htmlFor="target" class="form-label" >Workers left</label>
+                  <input type="number" class="form-control" placeholder="" aria-label="Workers Available" />
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col">
+                  <label htmlFor="target" class="form-label" >Stock for the day</label>
+                  <input type="number" class="form-control" placeholder="" aria-label="Stock For the Day" />
+                </div>
+                <div class="col">
+                  <label htmlFor="target" class="form-label" >Stock leftout</label>
+                  <input type="number" class="form-control" placeholder="" aria-label="Left Out Stock" />
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col">
+                  <label htmlFor="target" class="form-label" >Faulty Stock</label>
+                  <input type="number" class="form-control" placeholder="" aria-label="Faulty Stock" />
+                </div>
+                <div class="col">
+                  <label htmlFor="target" class="form-label" >Faulty Production</label>
+                  <input type="number" class="form-control" placeholder="" aria-label="Faulty Production" />
+                </div>
+              </div>
+              <div class="mt-3" >
+                <label htmlFor="target" class="form-label" >Product Details <span style={{color:"rgb(200, 200, 200)"}}>(Include Test Details Also)</span></label>
+                <textarea name="productInfo" id="productInfo" placeholder="" rows={10} draggable={false}></textarea>
+              </div>
+              <button type="submit" class="btn btn-sm btn-dark mb-3">Submit</button>
+            </form>
           </div>
         </div>
       </div>

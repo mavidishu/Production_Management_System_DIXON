@@ -81,4 +81,17 @@
     width: 100%;
     margin: 10px 0;
 }
+
+.planContainer{
+    width: 90%;
+}
+
+#productInfo{
+    width: 100%;
+    resize: none;
+    border: 1px solid rgb(226, 226, 226);
+}
+
+
+/* Faulty ProductionFaulty ProductionFaulty Production */
 /* -------------------------------------------- Media Query (Screen : Laptop) ---------------------------------------*/

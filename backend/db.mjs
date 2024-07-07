@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const mongoURL = "mongodb://127.0.0.1:27017/adminDB";
 
 let connectToDb = ()=>{
@@ -10,4 +10,4 @@ let connectToDb = ()=>{
     })
 }
 
-module.exports = connectToDb;
+export default connectToDb;

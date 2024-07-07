@@ -1,5 +1,5 @@
-const express = require("express");
-const Transaction = require("../models/Transactions.js");
+import express from "express";
+import Transaction from "../models/Transactions.mjs";
 const router = express.Router();
 
 // Fetch All Transaction
@@ -116,4 +116,5 @@ router.get("/year",async(req,res)=>{
         console.log(err);
     }
 })
-module.exports = router;
+
+export default router;

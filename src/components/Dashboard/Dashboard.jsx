@@ -105,7 +105,7 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="container" style={{ width: "100%" }}>
+          <div className="" style={{ width: "90%" }}>
             <div className="d-flex justify-content-end">
               <div className="mx-3">
                 <span className="fw-bold">Audit Date :</span>
@@ -119,13 +119,15 @@ function Dashboard() {
           </div>
           <hr className="divider" />
           {/* <div className="chart"><Barchart /></div> */}
+
           <div className="planContainer">
             <h5 class="text-center">Plan For the Day</h5>
-            <form>
+            <form method="POST" className="needs-validation" noValidate>
               <div class="row">
                 <div class=" mb-3">
                   <label htmlFor="target" class="form-label" >Target of the day</label>
                   <input type="number" class="form-control" id="target" placeholder="" aria-label="Target For the Day" />
+                  <div className="form-text">Warning: target of the day must be less than or equal to overall target.</div>
                 </div>
                 <div class="">
                   <label htmlFor="target" class="form-label" >Workers left</label>
@@ -153,10 +155,10 @@ function Dashboard() {
                 </div>
               </div>
               <div class="mt-3" >
-                <label htmlFor="target" class="form-label" >Product Details <span style={{color:"rgb(200, 200, 200)"}}>(Include Test Details Also)</span></label>
-                <textarea name="productInfo" id="productInfo" placeholder="" rows={10} draggable={false}></textarea>
+                <label htmlFor="target" class="form-label" >Product Details <span style={{color:"rgb(170, 170, 170)"}}>(Include Test Details Also)</span></label>
+                <textarea name="productInfo" id="productInfo" placeholder="" rows={10}></textarea>
               </div>
-              <button type="submit" class="btn btn-sm btn-dark mb-3">Submit</button>
+              <button type="submit" class="mt-3 btn btn-sm btn-dark mb-3">Submit</button>
             </form>
           </div>
         </div>

@@ -33,7 +33,7 @@ function Transactions() {
                     <th scope="row">{item._id.substring(0,10)}</th>
                     <th>{item.userId.substring(0,10)}</th>
                     <td>{item.createdAt.substring(0,10)}</td>
-                    <td>{item.noOfProducts}</td>
+                    <td>{item.cost}</td>
                     <td>{item.cost}</td>
                   </tr>
                   )

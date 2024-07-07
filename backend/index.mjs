@@ -1,5 +1,8 @@
-const express = require("express");
-const connectToDb = require("./db.js");
+import express from "express" ;
+import connectToDb from "./db.mjs" ;
+import userRoutes from "./routes/usersRoute.mjs";
+import productRoutes from "./routes/productsRoute.mjs";
+import transactionRoutes from "./routes/transactionRoute.mjs";
 
 connectToDb();
 const app = express();
@@ -21,9 +24,9 @@ app.get("/",(req,res)=>{
     res.send("Welcome to Admin Dashboard Backend");
 })
 
-app.use("/listings",require("./routes/usersRoute.js"));
-app.use("/products",require("./routes/productsRoute.js"));
-app.use("/transactions",require("./routes/transactionRoute.js"));
+app.use("/listings",userRoutes);
+app.use("/products",productRoutes);
+app.use("/transactions",transactionRoutes);
 
 // Listening to Server
 app.listen(PORT,()=>{

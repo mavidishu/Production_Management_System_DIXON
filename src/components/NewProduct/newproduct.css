@@ -1,0 +1,9 @@
+.productContainer{
+    background-color: white;
+    border-radius: 0.8rem;
+    padding: 2rem 2rem;
+}
+
+#productInfo{
+    padding: 0.8rem 0.8rem;
+}

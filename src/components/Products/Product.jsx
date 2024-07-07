@@ -29,13 +29,13 @@ function Product() {
     return (formattedDate);
   };
 
-  let handleClick = (key)=>{
-
-  }
   return (
     <section id="product">
       <div className="container my-3">
-        <h3 className="my-3 productTitle">Product Listing</h3>
+        <div className="productsHeading d-flex justify-content-between align-items-center">
+          <h3 className="my-3 productTitle">Product Listing</h3>
+          <button className="btn btn-dark"> <a href="/products/new" style={{color:"white"}}>Add</a> </button>
+        </div>
         <div className="tableContainer">
           <table className="table mx-3 table-hover">
             <thead>

@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const Product = require("./Products");
+import mongoose from "mongoose";
 
 // const productSchema = new mongoose.Schema({
 //     productName:{
@@ -54,4 +53,4 @@ const transactionSchema = new mongoose.Schema({
 });
 
 const Transactions = mongoose.model('transaction',transactionSchema);
-module.exports = Transactions;
+export default Transactions;

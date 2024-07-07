@@ -13,7 +13,6 @@ function Customers() {
   return (
     <section id="customers">
       <div className="container">
-
         <h3 className="my-3 customerTitle">Registered Customers</h3>
         <div className="tableContainer">
           <table className="table">

@@ -1,5 +1,5 @@
-const express = require("express");
-const User = require("../models/User.js");
+import express from "express" ;
+import User from "../models/User.mjs";
 const router = express.Router();
 
 // Fetch All User
@@ -13,4 +13,4 @@ router.get("/user",async(req,res)=>{
     }
 });
 
-module.exports = router;
+export default router;

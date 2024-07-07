@@ -3,21 +3,20 @@ import "./login.css";
 import dixonLogo from "../../assets/dixon.png";
 function Login() {
   return (
-    <div className="loginSection d-flex" style={{ marginTop: "6rem" }}>
+    <div className="loginSection d-flex" style={{ marginTop: "5rem" }}>
         <div className="loginSidebar">
-            {/* <img src={dixonLogo} alt="" id="dixonLogin"/> */}
             <h2 >Dixon</h2>
             <div className="sidebarInfo">
-                <h4>Inspired by our Vision.</h4>
+                <h4 className="">Inspired by our Vision.</h4>
                 <p>Leading an</p>
                 <p>Innovative Electronic</p>
                 <p>Revolution !</p>
             </div>
         </div>
       <div className="loginContainer">
-        <h3>Gain access to admin panel</h3>
+        <h3 className="">Gain access to admin panel</h3>
         <form>
-          <div class="mb-3">
+          <div class="mb-3 mt-3">
             <label for="employeeId" class="form-label">
               Employee Id
             </label>

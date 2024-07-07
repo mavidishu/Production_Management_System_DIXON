@@ -15,6 +15,7 @@ import Admin from "./components/Admin/Admin.jsx";
 import UserState from "./context/user/UserState.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Login from "./components/Login/Login.jsx";
+import NewProduct from "./components/NewProduct/NewProduct.jsx";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -31,6 +32,7 @@ function App() {
           <Navbar toggleSidebar={toggleSidebar}/>
               <Routes>
                 <Route path="/" element={<Login/>}></Route>
+                <Route path="/products/new" element={<NewProduct/>}></Route>
                 <Route path="/product/view/:id" element={<Dashboard/>}></Route>
                 <Route path="/products" element={<Product/>}></Route>
                 <Route path="/customers" element={<Customers/>}></Route>

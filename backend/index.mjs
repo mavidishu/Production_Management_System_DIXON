@@ -3,12 +3,16 @@ import connectToDb from "./db.mjs" ;
 import userRoutes from "./routes/usersRoute.mjs";
 import productRoutes from "./routes/productsRoute.mjs";
 import transactionRoutes from "./routes/transactionRoute.mjs";
+import methodOverride from "method-override";
 
 connectToDb();
 const app = express();
 
 const PORT  = 5000;
 
+app.use(methodOverride("_method"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use((req,res,next)=>{
     // cors error resolved:
     res.header('Access-Control-Allow-Origin', '*'); // or 'http://localhost:5000'

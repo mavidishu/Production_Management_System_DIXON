@@ -9,6 +9,7 @@ import UserContext from "../../context/user/UserContext.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck,faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard() {
   const context = useContext(UserContext);
@@ -180,7 +181,8 @@ function Dashboard() {
             <iframe src={productOne.workInstruction}  className="mt-3 pdfViewer"></iframe>
           </div>}
 
-          {productOne.status == "false" && <div className="handlerContainer" style={{display:"flex",justifyContent:"end",width:"100%",fontSize:"1.3rem",gap:"2rem",padding:"1rem 3rem"}}>
+          {productOne.status == "false" && <div className="handlerContainer" style={{display:"flex",justifyContent:"space-between",alignItems:"center",width:"100%",fontSize:"1.3rem",gap:"2rem",padding:"1rem 3rem"}}>
+            <FontAwesomeIcon icon={faPen} style={{color: "#000000",cursor:"pointer"}} onClick={()=>{handleEditClick(productOne._id)}} />
             <div className="approveContainer d-flex align-items-center">
               <span className="" style={{fontSize:"1rem",marginRight:"30px"}}>Approve </span>
               <FontAwesomeIcon icon={faCheck} style={{color: "#63E6BE",cursor:"pointer",marginRight:"30px"}} onClick={()=>{handleSuccessClick(productOne._id)}} />
@@ -189,7 +191,8 @@ function Dashboard() {
           </div>}
 
           {
-            productOne.status == "true" && <div className="handlerContainer" style={{display:"flex",justifyContent:"end",width:"100%",fontSize:"1.3rem",gap:"2rem",padding:"1rem 3rem"}}>
+            productOne.status == "true" && <div className="handlerContainer" style={{display:"flex",justifyContent:"space-between",alignItems:"center",width:"100%",fontSize:"1.3rem",gap:"2rem",padding:"1rem 3rem"}}>
+            <FontAwesomeIcon icon={faPen} style={{color: "#000000",cursor:"pointer"}} onClick={()=>{navigate(`/products/edit/${productOne._id}`)}}/>
             <div className="approveContainer d-flex align-items-center">
               <span className="" style={{fontSize:"1rem"}}>Approved </span>
             </div>

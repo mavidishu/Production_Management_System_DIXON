@@ -161,6 +161,11 @@ function Dashboard() {
               <button type="submit" class="mt-3 btn btn-sm btn-dark mb-3">Submit</button>
             </form>
           </div>
+
+          <div className="pdfContainer">
+            <h5 className="text-center mb-3">Work Instruction</h5>
+            <iframe src={productOne.workInstruction}  className="mt-3 pdfViewer"></iframe>
+          </div>
         </div>
       </div>
     </section>

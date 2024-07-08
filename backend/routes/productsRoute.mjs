@@ -76,6 +76,16 @@ router.post("/",upload.single('wiUrl'),async(req,res)=>{
       });
       blobStream.end(req.file.buffer);
       res.redirect("http://localhost:5173/products");
-})
+});
 
+// Update Status
+router.get("/item/status/:id",async(req,res)=>{
+  let id = req.params.id;
+  console.log(id);
+  let product = await Products.findById(id);
+  product.status = "true";
+  await Products.findByIdAndUpdate(id,product);
+  console.log("Successfully Updated");
+  res.json(product);
+});
 export default router;

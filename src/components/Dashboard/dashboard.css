@@ -103,5 +103,12 @@
     height: 500px; /* Adjust the height as needed */
     border: none;
 }
+
+.approveContainer{
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.66rem 2rem;
+}
 /* Faulty ProductionFaulty ProductionFaulty Production */
 /* -------------------------------------------- Media Query (Screen : Laptop) ---------------------------------------*/

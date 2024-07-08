@@ -79,7 +79,7 @@ function Product() {
                     <th scope="row">{item._id}</th>
                     <td>{item.productName}</td>
                     <td>{dateFormat(item.auditDate)}</td>
-                    <td>{item.status == true?<FontAwesomeIcon icon={faCircleCheck} style={{color: "#63E6BE",}} />:<FontAwesomeIcon icon={faClock} style={{color: "#FFD43B",}} />}</td>
+                    <td>{item.status == "true"?<FontAwesomeIcon icon={faCircleCheck} style={{color: "#63E6BE",}} />:<FontAwesomeIcon icon={faClock} style={{color: "#FFD43B",}} />}</td>
                   </tr>
                 );
               })}

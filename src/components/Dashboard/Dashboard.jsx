@@ -7,11 +7,13 @@ import monthlySalesIcon from "../../assets/monthlySales.png";
 import product from "../../assets/product.png";
 import UserContext from "../../context/user/UserContext.jsx";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck,faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Dashboard() {
   const context = useContext(UserContext);
   let params = useParams();
-
+  let navigate = useNavigate();
   const {
     user,
     products,
@@ -22,6 +24,17 @@ function Dashboard() {
   } = context;
   const [time, setTime] = useState(new Date());
   let productId = params.id;
+
+  // Updating Status of Production
+  let handleSuccessClick = async(id)=>{
+    const response = await fetch(`http://localhost:5000/products//item/status/${id}`,{
+      method:'GET',
+      headers:{
+        "Content-Type":"application/json",
+      }
+    });
+    navigate(`/products`);
+  }
 
   useEffect(() => {
     getUser();
@@ -162,10 +175,26 @@ function Dashboard() {
             </form>
           </div>
 
-          <div className="pdfContainer">
+          {productOne.workInstruction && <div className="pdfContainer">
             <h5 className="text-center mb-3">Work Instruction</h5>
             <iframe src={productOne.workInstruction}  className="mt-3 pdfViewer"></iframe>
+          </div>}
+
+          {productOne.status == "false" && <div className="handlerContainer" style={{display:"flex",justifyContent:"end",width:"100%",fontSize:"1.3rem",gap:"2rem",padding:"1rem 3rem"}}>
+            <div className="approveContainer d-flex align-items-center">
+              <span className="" style={{fontSize:"1rem",marginRight:"30px"}}>Approve </span>
+              <FontAwesomeIcon icon={faCheck} style={{color: "#63E6BE",cursor:"pointer",marginRight:"30px"}} onClick={()=>{handleSuccessClick(productOne._id)}} />
+              <FontAwesomeIcon icon={faXmark} style={{color: "#ff0000",cursor:"pointer"}} />
+            </div>
+          </div>}
+
+          {
+            productOne.status == "true" && <div className="handlerContainer" style={{display:"flex",justifyContent:"end",width:"100%",fontSize:"1.3rem",gap:"2rem",padding:"1rem 3rem"}}>
+            <div className="approveContainer d-flex align-items-center">
+              <span className="" style={{fontSize:"1rem"}}>Approved </span>
+            </div>
           </div>
+          }
         </div>
       </div>
     </section>

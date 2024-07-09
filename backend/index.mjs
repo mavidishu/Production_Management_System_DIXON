@@ -1,6 +1,6 @@
 import express from "express" ;
 import connectToDb from "./db.mjs" ;
-import userRoutes from "./routes/usersRoute.mjs";
+import employeeRoute from "./routes/employeeRoute.mjs";
 import productRoutes from "./routes/productsRoute.mjs";
 import transactionRoutes from "./routes/transactionRoute.mjs";
 import methodOverride from "method-override";
@@ -13,6 +13,7 @@ const PORT  = 5000;
 app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use((req,res,next)=>{
     // cors error resolved:
     res.header('Access-Control-Allow-Origin', '*'); // or 'http://localhost:5000'
@@ -28,7 +29,7 @@ app.get("/",(req,res)=>{
     res.send("Welcome to Admin Dashboard Backend");
 })
 
-app.use("/listings",userRoutes);
+app.use("/employees",employeeRoute);
 app.use("/products",productRoutes);
 app.use("/transactions",transactionRoutes);
 

@@ -4,7 +4,6 @@ const router = express.Router();
 import path from "path";
 import {bucket}  from "../../firebaseConfig.mjs";
 import multer  from 'multer';
-import { ref, uploadBytes, getDownloadURL }  from "firebase/storage";
 
 const upload = multer({
     storage: multer.memoryStorage(),

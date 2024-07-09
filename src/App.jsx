@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import { BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import Product from "./components/Products/Product.jsx";
-import Customers from "./components/Customers/Customers.jsx";
+import Employees from "./components/Employees/Employees.jsx";
 import Transactions from "./components/Transactions/Transactions.jsx";
 import Overview from "./components/Overview/Overview.jsx";
 import Daily from "./components/Daily/Daily.jsx";
@@ -17,6 +17,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import Login from "./components/Login/Login.jsx";
 import NewProduct from "./components/NewProduct/NewProduct.jsx";
 import EditProduct from "./components/EditRoute/EditProduct.jsx";
+import NewEmployee from "./components/NewEmployee/NewEmployee.jsx";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -37,7 +38,8 @@ function App() {
                 <Route path="/products/edit/:id" element={<EditProduct/>}></Route>
                 <Route path="/product/view/:id" element={<Dashboard/>}></Route>
                 <Route path="/products" element={<Product/>}></Route>
-                <Route path="/customers" element={<Customers/>}></Route>
+                <Route path="/employees" element={<Employees/>}></Route>
+                <Route path="/employees/new" element={<NewEmployee/>}></Route>
                 <Route path="/transactions" element={<Transactions/>}></Route>
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
                 <Route path="/daily" element={<Daily/>}></Route>

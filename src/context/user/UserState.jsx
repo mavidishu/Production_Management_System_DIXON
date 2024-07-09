@@ -15,7 +15,7 @@ const UserState = (props)=>{
 
     // API CALL - get all users using GET
     const getUser = async()=>{
-        const response = await fetch("http://localhost:5000/listings/user",{
+        const response = await fetch("http://localhost:5000/employees",{
             method:'GET',
             headers:{
                 "Content-Type":"application/json",

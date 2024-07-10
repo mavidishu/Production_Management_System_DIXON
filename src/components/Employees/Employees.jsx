@@ -19,9 +19,6 @@ function Employees() {
     const jsonUser = await response.json();
     setEmployee(jsonUser);
   }
-  const handleAddEmployee = (newEmployee)=>{
-    setEmployees((prevEmployees) => [...prevEmployees, newEmployee]);
-  }
 
   useEffect(()=>{
     fetchEmployees();
@@ -66,7 +63,7 @@ function Employees() {
               {
                 employee.map((user)=>{
                   return(
-                    <tr key={user._id}>
+                    <tr onClick={()=>{navigate(`/employees/${user._id}`)}}>
                       <th scope="row">{user._id}</th>
                       <td>{user.employeeName}</td>
                       <td>{user.mobileNumber}</td>

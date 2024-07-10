@@ -59,4 +59,10 @@ router.post("/",upload.single('photo'),async(req,res)=>{
     }
 })
 
+router.get("/:id",async(req,res)=>{
+    let id = req.params.id;
+    let employee = await Employee.findById(id);
+    res.json(employee);
+})
+
 export default router;

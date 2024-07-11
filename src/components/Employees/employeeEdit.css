@@ -1,0 +1,12 @@
+.editFormContainer{
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.8rem;
+}
+
+.prevImage img{
+    height: 200px;
+    width: 200px;
+    border: 5px solid black;
+    border-radius: 50%;
+}

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import sampleImage from "../../assets/admin.png";
 import "./employeeInfo.css";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
 function EmployeeInfo() {
+    let navigate = useNavigate();
     const[employee,setEmployee] = useState({});
     let params = useParams();
     let employeeId = params.id;
@@ -24,15 +26,18 @@ function EmployeeInfo() {
     },[])
   return (
     <div className='container' style={{marginTop:"6rem",width:"80%"}}>
-        <h3 className="my-3 customerTitle">Employee Profile</h3>
+        <div className="d-flex justify-content-between align-items-center">
+            <h3 className="my-3 customerTitle">Employee Profile</h3>
+            <button className="btn btn-dark" onClick={()=>{navigate(`/employees/edit/${employee._id}`)}}>Edit</button>
+        </div>
         <div className='employeeInfoContainer mb-3'>
             <div className="d-flex align-items-start">
                 <div className="leftContainer" style={{width:"30%"}}>
                     <div className="card profileCard" style={{width:"100%"}}>
-                        <h6 class="card-subtitle mb-2">Profile </h6>
+                        <h6 class="card-subtitle mb-2">Profile Card</h6>
                         <div className="card-body text-center" style={{width:"100%"}}>
                             <div className="profilePic">
-                                <img src={sampleImage} alt="profilePicture" />
+                                <img src={employee.photo} alt="profilePicture" />
                             </div>
                             <div className="profileInfo mt-3">
                                 <h5>{employee.employeeName}</h5>

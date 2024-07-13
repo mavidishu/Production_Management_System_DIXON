@@ -1,0 +1,89 @@
+.leftContainer{
+    background-color: darkslateblue;
+    height: 100%;
+    color: white;
+    overflow: visible;
+    border-radius: 0.8rem;
+    padding-bottom: 2rem;
+}
+
+.employeeInfoContainer{
+    background-color: white;
+    /* padding: 1rem 1rem; */
+    border-radius: 0.8rem;
+}
+
+.profileCard{
+    padding: 2rem 2rem !important;
+    align-items: start;
+    border: none !important;
+    background-color: transparent !important;
+}
+.profileCard h6{
+    text-align: start !important;
+    font-size: 0.9rem;
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+}
+.profileInfo h5{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+}
+.profileInfo span{
+    font-size: 0.9rem;
+    color: white;
+}
+.profilePic img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.contactCard{
+    padding: 2rem 2rem !important;
+    align-items: start;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.contactCard h6{
+    text-align: start !important;
+    font-size: 0.9rem;
+    color: white !important;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+}
+
+.contactCard label{
+    font-size: 0.8rem;
+    display: block;
+    color: white;
+}
+
+.contactCard a{
+    font-size:1.1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.detailsCard{
+    padding: 2rem 2rem;
+    align-items: start;
+    border: none;
+}
+
+.detailsCard h6{
+    color: darkslateblue !important;
+    font-size: 0.9rem;
+}
+
+.detailsCard p{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.detailsCard label{
+    font-size: 0.8rem;
+}

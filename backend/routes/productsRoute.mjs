@@ -4,7 +4,6 @@ const router = express.Router();
 import path from "path";
 import {bucket}  from "../../firebaseConfig.mjs";
 import multer  from 'multer';
-import { ref, uploadBytes, getDownloadURL }  from "firebase/storage";
 
 const upload = multer({
     storage: multer.memoryStorage(),
@@ -87,5 +86,13 @@ router.get("/item/status/:id",async(req,res)=>{
   await Products.findByIdAndUpdate(id,product);
   console.log("Successfully Updated");
   res.json(product);
+});
+
+router.put("/:id",async(req,res)=>{
+  console.log("Got the request");
+  let newObject = req.body;
+  await Products.findByIdAndUpdate(req.params.id,newObject);
+  console.log("Data updates successfully");
+  res.redirect(`http://localhost:5173/product/view/${req.params.id}`);
 });
 export default router;

@@ -1,25 +1,42 @@
 import React from "react";
-import "./customers.css";
+import "./employees.css";
 import { useContext, useEffect, useRef,useState } from "react";
-import UserContext from "../../context/user/UserContext";
+import { useNavigate } from "react-router-dom";
+import NewEmployee from "../NewEmployee/NewEmployee.jsx";
 
-function Customers() {
-  const context = useContext(UserContext);
-  const {user,getUser} = context;
+function Employees() {
+  let [employee,setEmployee] = useState([]);
+  let navigate = useNavigate();
+
+  let fetchEmployees = async()=>{
+    const response = await fetch("http://localhost:5000/employees",{
+      method:'GET',
+      headers:{
+          "Content-Type":"application/json",
+          // auth token for login
+      }
+    });
+    const jsonUser = await response.json();
+    setEmployee(jsonUser);
+  }
+
   useEffect(()=>{
-    getUser();
+    fetchEmployees();
   },[]);
 
   return (
     <section id="customers">
-      <div className="container">
-        <h3 className="my-3 customerTitle">Registered Customers</h3>
+      <div className="container mb-3">
+        <div className="employeeHeaderContainer d-flex justify-content-between align-items-center">
+          <h3 className="my-3 customerTitle">Registered Employees</h3>
+          <button className="btn btn-dark" onClick={()=>{navigate("/employees/new")}}>New Employee</button>
+        </div>
         <div className="tableContainer">
           <table className="table">
             <thead>
               <tr>
                 <th scope="col" className="tableHead">Id</th>
-                <th scope="col" className="tableHead">Customer Name</th>
+                <th scope="col" className="tableHead">Employee Name</th>
                 <th scope="col" className="tableHead">Mobile No</th>
                 <th scope="col" className="tableHead">Email</th>
               </tr>
@@ -44,13 +61,13 @@ function Customers() {
                 <td>rohanch99@gmail.com</td>
               </tr>
               {
-                user.map((user)=>{
+                employee.map((user)=>{
                   return(
-                    <tr>
+                    <tr onClick={()=>{navigate(`/employees/${user._id}`)}}>
                       <th scope="row">{user._id}</th>
-                      <td>{user.userName}</td>
-                      <td>{user.mobileNo}</td>
-                      <td>{user.userEmail}</td>
+                      <td>{user.employeeName}</td>
+                      <td>{user.mobileNumber}</td>
+                      <td>{user.email}</td>
                     </tr>
                   )
                 })
@@ -63,4 +80,4 @@ function Customers() {
   );
 }
 
-export default Customers;
+export default Employees;

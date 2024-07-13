@@ -29,7 +29,6 @@ This project is an Admin Dashboard built using the MERN stack (MongoDB, Express,
 - **Styling:** CSS, Bootstrap, Material-UI
 - **Authentication:** JWT (JSON Web Tokens)
 - **Testing:** Jest, Enzyme
-- **Deployment:** Docker, Heroku
 
 ## Installation
 

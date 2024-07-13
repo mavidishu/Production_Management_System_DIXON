@@ -24,6 +24,7 @@ function EmployeeInfo() {
     useEffect(()=>{
         fetchEmployee();
     },[])
+    
   return (
     <div className='container' style={{marginTop:"6rem",width:"80%"}}>
         <div className="d-flex justify-content-between align-items-center">

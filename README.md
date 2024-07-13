@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is an Admin Dashboard built using the MERN stack (MongoDB, Express, React, Node.js). The dashboard provides various administrative functionalities, including user management, data visualization, and system monitoring.
+This project is built using the MERN stack (MongoDB, Express, React, Node.js), additionally it include a set of APIs to handle CRUD operation on work instruction given to employees using firebase and multer. The dashboard provides various administrative functionalities, including employee management, data visualization, and transaction monitoring.
 
 ## Table of Contents
 
@@ -14,12 +14,12 @@ This project is an Admin Dashboard built using the MERN stack (MongoDB, Express,
 
 ## Features
 
-- User authentication and authorization
+- Admin authentication and authorization
 - Role-based access control
 - Dynamic data visualization with charts and graphs
-- Real-time updates and notifications
+- Real-time updates
 - Responsive design for mobile and desktop views
-- CRUD operations for managing users and data
+- CRUD operations for managing employees and transactions data
 
 ## Technologies
 
@@ -27,7 +27,7 @@ This project is an Admin Dashboard built using the MERN stack (MongoDB, Express,
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB, Mongoose
 - **Styling:** CSS, Bootstrap, Material-UI
-- **Authentication:** JWT (JSON Web Tokens)
+- **Authentication:** Passport
 - **Testing:** Jest, Enzyme
 
 ## Installation
@@ -36,14 +36,13 @@ This project is an Admin Dashboard built using the MERN stack (MongoDB, Express,
 
 - Node.js (v14 or later)
 - MongoDB (local or cloud-based)
-- Docker (optional, for containerization)
 
 ### Steps
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/mavidishu/admin-dashboard.git
-   cd admin-dashboard
+   git clone https://github.com/mavidishu/Production_Management_System_DIXON.git
+   cd Production_Management_System_DIXON
    ```
 2. **Install Dependencies**
    - For the backend
@@ -74,8 +73,8 @@ This project is an Admin Dashboard built using the MERN stack (MongoDB, Express,
      ```
 ## Usage
   - Login: Use the credentials provided in the database or register or create a new account.
-  - Dashboard: Access different sections of the dashboard using the navigation menu.
-  - User Management: Add, update, delete, and view users.
+  - Dashboard: Access different sections of the dashboard using the production section.
+  - Employee Management: Add, update, delete, and view users.
   - Data Visualization: View charts and graphs representing various metrics.
 
 ## Project Structure

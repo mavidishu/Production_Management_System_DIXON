@@ -4,6 +4,10 @@ import employeeRoute from "./routes/employeeRoute.mjs";
 import productRoutes from "./routes/productsRoute.mjs";
 import transactionRoutes from "./routes/transactionRoute.mjs";
 import methodOverride from "method-override";
+import session from 'express-session';
+import flash from 'connect-flash';
+import passport from "passport";
+import localStrategy from "passport-local";
 
 connectToDb();
 const app = express();

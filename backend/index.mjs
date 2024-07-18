@@ -3,16 +3,35 @@ import connectToDb from "./db.mjs" ;
 import employeeRoute from "./routes/employeeRoute.mjs";
 import productRoutes from "./routes/productsRoute.mjs";
 import transactionRoutes from "./routes/transactionRoute.mjs";
+import Admin from "./models/Admin.mjs";
 import methodOverride from "method-override";
+import passport from "passport";
+import LocalStrategy from "passport-local";
+import session from "express-session";
+import flash from "connect-flash";
 
 connectToDb();
 const app = express();
 
 const PORT  = 5000;
 
+
 app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'dixoninfocom',
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(Admin.authenticate()));
+
+passport.serializeUser(Admin.serializeUser());
+passport.deserializeUser(Admin.deserializeUser());
 
 app.use((req,res,next)=>{
     // cors error resolved:
@@ -32,6 +51,44 @@ app.get("/",(req,res)=>{
 app.use("/employees",employeeRoute);
 app.use("/products",productRoutes);
 app.use("/transactions",transactionRoutes);
+
+// app.get("/testAdmin",async(req,res)=>{
+//   let fakeAdmin = new Admin({
+//     email:"testmail@dixoninfo.com",
+//     username:"testUser1",
+//   });
+
+//   let registeredAdmin = await Admin.register(fakeAdmin,"password");
+//   res.send(registeredAdmin);
+// });
+
+app.post("/login",passport.authenticate("local",{failureRedirect:"http://localhost:5173/login",failureFlash:true}),async(req,res)=>{
+  console.log(req.body);
+  res.redirect("http://localhost:5173/products");
+})
+
+app.post('/signup',async(req,res)=>{
+  try{
+    let {username,email,password} = req.body;
+    const newAdmin = new Admin({email,username});
+    let registeredData = await Admin.register(newAdmin,password);
+    console.log(registeredData);
+    req.flash("success",`Welcome ${username} to our production management system.`)
+    res.redirect("http://localhost:5173/products");
+  }catch(err){
+    res.flash("error",err.message);
+    res.redirect("http://localhost:5173/signup");
+  }
+})
+
+app.get("/profile",async(req,res)=>{
+  if(req.isAuthenticated()){
+    res.json(req.user);
+  }else{
+    req.flash("error","login to access");
+    res.redirect("http://localhost:5173/login");
+  }
+});
 
 // Listening to Server
 app.listen(PORT,()=>{

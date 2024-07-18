@@ -20,6 +20,7 @@ import EditProduct from "./components/EditRoute/EditProduct.jsx";
 import NewEmployee from "./components/NewEmployee/NewEmployee.jsx";
 import EmployeeInfo from "./components/Employees/EmployeeInfo.jsx";
 import EmployeeEdit from "./components/Employees/EmployeeEdit.jsx";
+import Signup from "./components/Login/Signup.jsx";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -36,6 +37,7 @@ function App() {
           <Navbar toggleSidebar={toggleSidebar}/>
               <Routes>
                 <Route path="/" element={<Login/>}></Route>
+                <Route path="/signup" element={<Signup/>}></Route>
                 <Route path="/products/new" element={<NewProduct/>}></Route>
                 <Route path="/products/edit/:id" element={<EditProduct/>}></Route>
                 <Route path="/product/view/:id" element={<Dashboard/>}></Route>

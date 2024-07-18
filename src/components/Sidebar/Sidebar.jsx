@@ -33,20 +33,20 @@ function Sidebar({toggleSidebar}) {
           <ul>
             <li
               className={`d-flex ${
-                location.pathname == "/" ? "hoverEffect" : ""
+                location.pathname == "/signup" ? "hoverEffect" : ""
               }`}
               onClick={handleClick}
             >
               <Link
-                to="/"
-                className={`${location.pathname == "/" ? "hoverEffect" : ""}`}
+                to="/signup"
+                className={`${location.pathname == "/signup" ? "hoverEffect" : ""}`}
               >
                 <img
                   src={dashboardIcon}
-                  className={`${location.pathname == "/" ? "imageEffect" : ""}`}
+                  className={`${location.pathname == "/signup" ? "imageEffect" : ""}`}
                   alt=""
                 />
-                Dashboard
+                Signup
               </Link>
             </li>
             <li

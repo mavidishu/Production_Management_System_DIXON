@@ -20,6 +20,8 @@ import EditProduct from "./components/EditRoute/EditProduct.jsx";
 import NewEmployee from "./components/NewEmployee/NewEmployee.jsx";
 import EmployeeInfo from "./components/Employees/EmployeeInfo.jsx";
 import EmployeeEdit from "./components/Employees/EmployeeEdit.jsx";
+import Signup from "./components/Login/Signup.jsx";
+import HomeDashboard from "./components/Dashboard/HomeDashboard.jsx";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -36,6 +38,7 @@ function App() {
           <Navbar toggleSidebar={toggleSidebar}/>
               <Routes>
                 <Route path="/" element={<Login/>}></Route>
+                <Route path="/signup" element={<Signup/>}></Route>
                 <Route path="/products/new" element={<NewProduct/>}></Route>
                 <Route path="/products/edit/:id" element={<EditProduct/>}></Route>
                 <Route path="/product/view/:id" element={<Dashboard/>}></Route>
@@ -45,11 +48,13 @@ function App() {
                 <Route path="/employees/new" element={<NewEmployee/>}></Route>
                 <Route path="/employees/edit/:id" element={<EmployeeEdit/>}></Route>
                 <Route path="/transactions" element={<Transactions/>}></Route>
+                <Route path="/home" element={<HomeDashboard/>}></Route>
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
                 <Route path="/daily" element={<Daily/>}></Route>
                 <Route path="/monthly" element={<Monthly/>}></Route>
                 <Route path="/breakdown" element={<Breakdown/>}></Route>
                 <Route path="/admin" element={<Admin/>}></Route>
+                <Route path="/login" element={<Login/>}></Route>
               </Routes>
           <Footer/>
         </div>

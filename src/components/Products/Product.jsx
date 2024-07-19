@@ -1,14 +1,32 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect,useState } from "react";
 import "./product.css";
 import UserContext from "../../context/user/UserContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck,faClock } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
+import { getProfile } from "../../services/auth.mjs";
 
 function Product() {
   const contextProduct = useContext(UserContext);
   const { products, getProduct } = contextProduct;
   let navigate = useNavigate();
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await getProfile();
+        if(response.message === "Unauthorized"){
+          setUser(false);
+        }else{
+          setUser(true);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProfile();
+  }, []);
   useEffect(() => {
     getProduct();
   }, []);
@@ -34,7 +52,7 @@ function Product() {
       <div className="container my-3">
         <div className="productsHeading d-flex justify-content-between align-items-center">
           <h3 className="my-3 productTitle">Product Listing</h3>
-          <button className="btn btn-dark"> <a href="/products/new" style={{color:"white"}}>Add</a> </button>
+          {user?<button className="btn btn-dark"> <a href="/products/new" style={{color:"white"}}>Add</a> </button>:""}
         </div>
         <div className="tableContainer">
           <table className="table mx-3 table-hover">

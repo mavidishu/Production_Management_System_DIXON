@@ -1,7 +1,8 @@
 import React from "react";
 import "./login.css";
-import dixonLogo from "../../assets/dixon.png";
-function Login() {
+
+function Signup() {
+    
   return (
     <div className="loginSection d-flex" style={{ marginTop: "5rem" }}>
         <div className="loginSidebar">
@@ -14,8 +15,8 @@ function Login() {
             </div>
         </div>
       <div className="loginContainer">
-        <h3 className="">Gain access to admin panel</h3>
-        <form method="POST" action="http://localhost:5000/login">
+        <h3 className="">New authorization for admin access</h3>
+        <form action="http://localhost:5000/signup" method="post">
           <div class="mb-3 mt-3">
             <label for="employeeId" class="form-label">
               Employee Id
@@ -28,14 +29,26 @@ function Login() {
               aria-describedby="emailHelp"
             />
           </div>
+          <div class="mb-3 mt-3">
+            <label for="employeeId" class="form-label">
+              Email Id
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              aria-describedby="emailHelp"
+            />
+          </div>
           <div class="mb-3">
             <label for="password" class="form-label">
               Password
             </label>
-            <input type="password" class="form-control" name="password" id="password" />
+            <input type="password" name="password" class="form-control" id="password" />
           </div>
           <button type="submit" class="btn btn-dark my-3">
-            Login
+            Signup
           </button>
         </form>
       </div>
@@ -43,4 +56,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

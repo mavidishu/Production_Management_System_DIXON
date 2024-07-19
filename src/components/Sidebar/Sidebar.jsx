@@ -118,20 +118,20 @@ function Sidebar({toggleSidebar}) {
             </li>
             <li
               className={`d-flex  ${
-                location.pathname == "/dashboard" ? "hoverEffect" : ""
+                location.pathname == "/home" ? "hoverEffect" : ""
               }`}
             >
               <Link
-                to="/dashboard"
+                to="/home"
                 className={`${
-                  location.pathname == "/dashboard" ? "hoverEffect" : ""
+                  location.pathname == "/home" ? "hoverEffect" : ""
                 }`}
               >
                 <img
                   draggable={false}
                   src={computer}
                   className={`img-small ${
-                    location.pathname == "/dashboard" ? "imageEffect" : ""
+                    location.pathname == "/home" ? "imageEffect" : ""
                   }`}
                   alt=""
                 />

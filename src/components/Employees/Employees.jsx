@@ -3,10 +3,29 @@ import "./employees.css";
 import { useContext, useEffect, useRef,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NewEmployee from "../NewEmployee/NewEmployee.jsx";
+import { getProfile } from "../../services/auth.mjs";
 
 function Employees() {
   let [employee,setEmployee] = useState([]);
   let navigate = useNavigate();
+
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await getProfile();
+        if(response.message === "Unauthorized"){
+          setUser(false);
+        }else{
+          setUser(true);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProfile();
+  }, []);
 
   let fetchEmployees = async()=>{
     const response = await fetch("http://localhost:5000/employees",{
@@ -29,7 +48,7 @@ function Employees() {
       <div className="container mb-3">
         <div className="employeeHeaderContainer d-flex justify-content-between align-items-center">
           <h3 className="my-3 customerTitle">Registered Employees</h3>
-          <button className="btn btn-dark" onClick={()=>{navigate("/employees/new")}}>New Employee</button>
+          {user?<button className="btn btn-dark" onClick={()=>{navigate("/employees/new")}}>New Employee</button>:""}
         </div>
         <div className="tableContainer">
           <table className="table">
@@ -63,7 +82,7 @@ function Employees() {
               {
                 employee.map((user)=>{
                   return(
-                    <tr onClick={()=>{navigate(`/employees/${user._id}`)}}>
+                    <tr key={user._id} onClick={()=>{navigate(`/employees/${user._id}`)}}>
                       <th scope="row">{user._id}</th>
                       <td>{user.employeeName}</td>
                       <td>{user.mobileNumber}</td>

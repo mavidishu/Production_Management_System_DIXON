@@ -3,9 +3,10 @@ export const getProfile= async()=>{
         method:"GET",
         headers:{
             "Content-Type":"application/json",
-        }
+        },
+        credentials:"include"
     });
 
-    let admin = response.json();
+    let admin = await response.json();
     return admin;
 }

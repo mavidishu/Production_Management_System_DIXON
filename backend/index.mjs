@@ -9,6 +9,7 @@ import passport from "passport";
 import LocalStrategy from "passport-local";
 import session from "express-session";
 import flash from "connect-flash";
+import cors from "cors";
 
 connectToDb();
 const app = express();
@@ -23,6 +24,7 @@ app.use(session({
   secret: 'dixoninfocom',
   resave: false,
   saveUninitialized: true,
+  cookie: { secure: false } //
 }));
 app.use(flash());
 
@@ -33,19 +35,16 @@ passport.use(new LocalStrategy(Admin.authenticate()));
 passport.serializeUser(Admin.serializeUser());
 passport.deserializeUser(Admin.deserializeUser());
 
-app.use((req,res,next)=>{
-    // cors error resolved:
-    res.header('Access-Control-Allow-Origin', '*'); // or 'http://localhost:5000'
-    res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept,auth-token'
-    );
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
-    next();
-  },express.json());// Middleware to get response body as json value.
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'auth-token'],
+}));
 
 app.get("/",(req,res)=>{
-    res.send("Welcome to Admin Dashboard Backend");
+  res.send("Welcome to Admin Dashboard Backend");
 })
 
 app.use("/employees",employeeRoute);
@@ -62,8 +61,8 @@ app.use("/transactions",transactionRoutes);
 //   res.send(registeredAdmin);
 // });
 
-app.post("/login",passport.authenticate("local",{failureRedirect:"http://localhost:5173/login",failureFlash:true}),async(req,res)=>{
-  console.log(req.body);
+app.post("/login",passport.authenticate("local",{failureRedirect:"http://localhost:5173/",failureFlash:true}),async(req,res)=>{
+  console.log(req.user);
   res.redirect("http://localhost:5173/products");
 })
 
@@ -82,11 +81,32 @@ app.post('/signup',async(req,res)=>{
 })
 
 app.get("/profile",async(req,res)=>{
+  try{
+    if(req.isAuthenticated()){
+      console.log(req.user);
+      res.json(req.user);
+    }else{
+      console.log('User not authenticated');
+      res.status(401).json({ message: "Unauthorized" });
+    }
+  }catch(err){
+    console.log(err);
+  }
+});
+
+app.get("/logout",async(req,res)=>{
   if(req.isAuthenticated()){
-    res.json(req.user);
+    req.logOut((err)=>{
+      if(err){
+        console.log(err);
+        return next(err);
+      }
+      req.flash("success","Logged out successfully. Good Byee");
+      res.redirect("http://localhost:5173/");
+    })
   }else{
-    req.flash("error","login to access");
-    res.redirect("http://localhost:5173/login");
+    req.flash("error","User must be logged-in first to logout")
+    res.redirect("http://localhost:5173/");
   }
 });
 

@@ -38,14 +38,14 @@ const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','
 
 export default function App() {
   let context = useContext(UserContext);
-  let {yearSales,getYearSales} = context;
-  console.log(yearSales);
+  // let {yearSales,getYearSales} = context;
+  // console.log(yearSales);
   let data = {
     labels,
     datasets: [
       {
         label: 'Production',
-        data: yearSales,
+        data: [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000],
         backgroundColor: 'darkslateblue',
       },
       {
@@ -56,7 +56,7 @@ export default function App() {
     ],
   }
   useEffect(()=>{
-    getYearSales();
+    // getYearSales();
   },[]);
   return <Bar options={options} data={data} />;
 }

@@ -28,35 +28,30 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'FY - 24 Production Overview',
+      text: 'FY - 24 Sales Overview',
     },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'];
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'];
 
 
 export default function App() {
   let context = useContext(UserContext);
-  // let {yearSales,getYearSales} = context;
-  // console.log(yearSales);
+  let {yearSales,getYearSales} = context;
+  console.log(yearSales);
   let data = {
     labels,
     datasets: [
       {
-        label: 'Production',
-        data: [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000],
-        backgroundColor: 'darkslateblue',
-      },
-      {
-        label: 'Stock',
-        data: [2300,1200,1700,650,500,1000,1000,1100,1600,3000,2200,2000], //array of data [order placed by company]
+        label: 'Sales',
+        data: yearSales,
         backgroundColor: 'orange',
-      },
+      }
     ],
   }
   useEffect(()=>{
-    // getYearSales();
+    getYearSales();
   },[]);
   return <Bar options={options} data={data} />;
 }

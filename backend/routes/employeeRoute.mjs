@@ -67,6 +67,41 @@ router.post("/",upload.single('photo'),async(req,res)=>{
     }
 })
 
+router.get("/employeeCount",async(req,res)=>{
+  const employeeCount = await Employee.find();
+  res.json(employeeCount.length);
+})
+
+router.get("/insight", async (req, res) => {
+  const currYear = new Date().getFullYear();
+
+  const currYearEmp = await Employee.find({
+    joining: { $gte: new Date(`${currYear}-01-01`), $lte: new Date(`${currYear}-12-31`) }
+  });
+  
+  const prevYearEmp = await Employee.find({
+    joining: { $gte: new Date(`${currYear - 1}-01-01`), $lte: new Date(`${currYear - 1}-12-31`) }
+  });
+  
+  const secPrevEmp = await Employee.find({
+    joining: { $gte: new Date(`${currYear - 2}-01-01`), $lte: new Date(`${currYear - 2}-12-31`) }
+  });
+  
+  const thirdPrevEmp = await Employee.find({
+    joining: { $gte: new Date(`${currYear - 3}-01-01`), $lte: new Date(`${currYear - 3}-12-31`) }
+  });
+
+  let result = [
+    thirdPrevEmp.length,
+    secPrevEmp.length,
+    prevYearEmp.length,
+    currYearEmp.length,
+  ];
+
+  res.json(result);
+});
+
+
 router.get("/:id",async(req,res)=>{
     let id = req.params.id;
     let employee = await Employee.findById(id);
@@ -124,5 +159,6 @@ router.put("/:id",upload.single('photo'),async(req,res)=>{
       console.log("Data Updated Successfully !!");
       res.redirect(`http://localhost:5173/employees/${id}`);
 });
+
 
 export default router;

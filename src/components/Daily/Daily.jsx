@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./daily.css";
 import {
   Chart as ChartJS,
@@ -38,51 +38,53 @@ export const options = {
       type: 'linear',
       display: true,
       position: 'left',
-    },
-    y1: {
-      type: 'linear',
-      display: true,
-      position: 'right',
-      grid: {
-        drawOnChartArea: false,
+      beginAtZero: true,
+      ticks: {
+        stepSize: 1,       // Set scale increments to 1
+        precision: 0,      // Ensure no decimal points
       },
     },
+    // y1: {
+    //   type: 'linear',
+    //   display: true,
+    //   position: 'right',
+    //   grid: {
+    //     drawOnChartArea: false,
+    //   },
+    // },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['Jan 2021', 'Aug 2022', 'Mar 2023', 'Apr 2024'];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Total Units',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: 'orange',
-      backgroundColor: 'orange',
-      yAxisID: 'y',
-    },
-    {
-      label: 'Total Sales',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: 'darkslateblue',
-      backgroundColor: 'darkslateblue',
-      yAxisID: 'y1',
-    },
-  ],
-};
+
 
 
 function Daily() {
+  let [hiring,setHiring] = useState([]);
+  useEffect(()=>{
+    const fetchEmployeeDate = async()=>{  
+      const response = await fetch("http://localhost:5000/employees/insight");
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+      setHiring(jsonResponse);
+    }
+    fetchEmployeeDate();
+  },[])
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'No of Employees',
+        data: hiring,
+        borderColor: 'black',
+        backgroundColor: 'orange',
+        yAxisID: 'y',
+      },
+    ],
+  };
   return (
-    <section id='daily'>
-      <div className="container">
-        <h3 className='dailyTitle'>Daily Sales</h3>
-        <div className="mx-3 chartContainer my-3">
           <Line options={options} data={data} />
-        </div>
-      </div>
-    </section>
   )
 }
 

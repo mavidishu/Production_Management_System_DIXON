@@ -24,7 +24,7 @@ app.use(session({
   secret: 'dixoninfocom',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } //
+  cookie: { secure: false } //make sure to add this for http connection
 }));
 app.use(flash());
 
@@ -42,6 +42,8 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'auth-token'],
 }));
+
+
 
 app.get("/",(req,res)=>{
   res.send("Welcome to Admin Dashboard Backend");
@@ -72,7 +74,7 @@ app.post('/signup',async(req,res)=>{
     const newAdmin = new Admin({email,username});
     let registeredData = await Admin.register(newAdmin,password);
     console.log(registeredData);
-    req.flash("success",`Welcome ${username} to our production management system.`)
+    req.flash("success",`Welcome ${username} to our production management system.`);
     res.redirect("http://localhost:5173/products");
   }catch(err){
     res.flash("error",err.message);
@@ -102,6 +104,7 @@ app.get("/logout",async(req,res)=>{
         return next(err);
       }
       req.flash("success","Logged out successfully. Good Byee");
+      console.log(res.data);
       res.redirect("http://localhost:5173/");
     })
   }else{

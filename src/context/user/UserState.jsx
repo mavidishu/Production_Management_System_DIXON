@@ -7,12 +7,13 @@ const UserState = (props)=>{
     const productInitial = [];
     const transactionsInitial = [];
     const productOneInitial = [];
+    const yearSalesInitial = [];
     // State to fetch all users from mongodb [backend]
     const [user,setUser] = useState(userInitial);
     const [products,setProduct] = useState(productInitial);
     const [transactions,setTransaction] = useState(transactionsInitial);
     const [productOne,setParticularProduct] = useState(productOneInitial);
-
+    const [yearSales,setYearSales] = useState(yearSalesInitial);
     // API CALL - get all users using GET
     const getUser = async()=>{
         const response = await fetch("http://localhost:5000/employees",{
@@ -67,8 +68,16 @@ const UserState = (props)=>{
         console.log(jsonProductOne);
         setParticularProduct(jsonProductOne);
     }
+
+    // API CALL - get year sales using GET
+    const getYearSales = async()=>{
+        const response = await fetch("http://localhost:5000/transactions/year");
+        const jsonResponse = await response.json();
+
+        setYearSales(jsonResponse);
+    }
     return(
-        <UserContext.Provider value={{user,getUser,products,getProduct,transactions,getTransactions,productOne,getParticularProduct}}>
+        <UserContext.Provider value={{user,getUser,products,getProduct,transactions,getTransactions,productOne,getParticularProduct,yearSales,getYearSales}}>
             {props.children}
         </UserContext.Provider>
     )

@@ -30,8 +30,16 @@ function Navbar({toggleSidebar}) {
         <div className="container-fluid">
           <div className="logoContainer">
             <a className="logo" href="/">Dixon Technologies</a>
-            <img className="hamburger-icon" draggable={false} src={menu} onClick={toggleSidebar}/>
+              {user && (
+              <img
+              className="hamburger-icon"
+              draggable={false}
+              src={menu}
+              onClick={toggleSidebar}
+              />
+            )}
           </div>
+
           <form className="d-flex" role="search">
             <input
               className=" inputSearch"

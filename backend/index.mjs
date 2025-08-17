@@ -64,8 +64,10 @@ app.use("/transactions",transactionRoutes);
 // });
 
 app.post("/login",passport.authenticate("local",{failureRedirect:"http://localhost:5173/",failureFlash:true}),async(req,res)=>{
-  console.log(req.user);
-  res.redirect("http://localhost:5173/products");
+  res.status(200).json({
+    message: "Login successful",
+    user: req.user
+  });
 })
 
 app.post('/signup',async(req,res)=>{

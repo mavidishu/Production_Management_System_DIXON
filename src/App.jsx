@@ -14,13 +14,13 @@ import Breakdown from "./components/Breakdown/Breakdown.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import UserState from "./context/user/UserState.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import Login from "./components/Login/Login.jsx";
+import Login from "./pages/Login/Login.jsx";
 import NewProduct from "./components/NewProduct/NewProduct.jsx";
 import EditProduct from "./components/EditRoute/EditProduct.jsx";
 import NewEmployee from "./components/NewEmployee/NewEmployee.jsx";
 import EmployeeInfo from "./components/Employees/EmployeeInfo.jsx";
 import EmployeeEdit from "./components/Employees/EmployeeEdit.jsx";
-import Signup from "./components/Login/Signup.jsx";
+import Signup from "./pages/Login/Signup.jsx";
 import HomeDashboard from "./components/Dashboard/HomeDashboard.jsx";
 
 function App() {

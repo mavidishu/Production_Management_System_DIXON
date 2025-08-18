@@ -77,7 +77,7 @@ const UserState = (props)=>{
         setYearSales(jsonResponse);
     }
     return(
-        <UserContext.Provider value={{user,getUser,products,getProduct,transactions,getTransactions,productOne,getParticularProduct,yearSales,getYearSales}}>
+        <UserContext.Provider value={{user,getUser,setUser,products,getProduct,transactions,getTransactions,productOne,getParticularProduct,yearSales,getYearSales}}>
             {props.children}
         </UserContext.Provider>
     )

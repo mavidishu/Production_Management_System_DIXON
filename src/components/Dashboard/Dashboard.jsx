@@ -40,7 +40,7 @@ function Dashboard() {
   useEffect(() => {
     getUser();
     getProduct();
-    getParticularProduct(productId);
+    // getParticularProduct(productId); 
   }, []);
 
   const formatDate = (date) => {

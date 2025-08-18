@@ -1,9 +1,10 @@
 import express  from "express" ;
-import Products  from "../models/Products.mjs";
-const router = express.Router();
-import path from "path";
-import {bucket}  from "../../firebaseConfig.mjs";
+import mongoose from "mongoose";
 import multer  from 'multer';
+import path from "path";
+import Products  from "../models/Products.mjs";
+import {bucket}  from "../../firebaseConfig.mjs";
+const router = express.Router();
 
 const upload = multer({
     storage: multer.memoryStorage(),
@@ -31,10 +32,18 @@ router.get("/items",async(req,res)=>{
 router.get('/items/:id', async(req,res)=>{
     try{
         let id = req.params.id;
-        const product = await Products.findById(id);
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+          console.log(`Request failed to get product /items/${id} Invalid product ID:`, id);
+            return res.status(400).json({ message: "Invalid product ID" });
+        }
+        const product = await Products.findById(id);if (!product) {
+            console.log(`Request failed to get product /items/${id} Product not found`);
+            return res.status(404).json({ message: "Product not found" });
+        }
         res.json(product);
     }catch(err){
         console.log(err);
+        res.status(500).send("Internal Server Error");
     }
 })
 

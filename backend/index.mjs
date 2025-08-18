@@ -28,8 +28,8 @@ app.use(session({
 }));
 app.use(flash());
 
-app.use(passport.initialize());
 app.use(passport.session());
+app.use(passport.initialize());
 passport.use(new LocalStrategy(Admin.authenticate()));
 
 passport.serializeUser(Admin.serializeUser());
@@ -64,6 +64,7 @@ app.use("/transactions",transactionRoutes);
 // });
 
 app.post("/login",passport.authenticate("local",{failureRedirect:"http://localhost:5173/",failureFlash:true}),async(req,res)=>{
+  console.log("Login successful for user:", req.user.username);
   res.status(200).json({
     message: "Login successful",
     user: req.user
@@ -87,10 +88,11 @@ app.post('/signup',async(req,res)=>{
 app.get("/profile",async(req,res)=>{
   try{
     if(req.isAuthenticated()){
+      console.log('Request successful for /profile: User authenticated');
       console.log(req.user);
       res.json(req.user);
     }else{
-      console.log('User not authenticated');
+      console.log('Request failed for /profile: User not authenticated');
       res.status(401).json({ message: "Unauthorized" });
     }
   }catch(err){

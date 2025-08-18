@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { BrowserRouter as Router, Routes,Route} from 'react-router-dom'
+import { getProfile } from "./services/auth.mjs";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
-import { BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import Product from "./components/Products/Product.jsx";
 import Employees from "./components/Employees/Employees.jsx";
@@ -12,7 +13,6 @@ import Daily from "./components/Daily/Daily.jsx";
 import Monthly from "./components/Monthly/Monthly.jsx";
 import Breakdown from "./components/Breakdown/Breakdown.jsx";
 import Admin from "./components/Admin/Admin.jsx";
-import UserState from "./context/user/UserState.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Login from "./pages/Login/Login.jsx";
 import NewProduct from "./components/NewProduct/NewProduct.jsx";
@@ -22,15 +22,34 @@ import EmployeeInfo from "./components/Employees/EmployeeInfo.jsx";
 import EmployeeEdit from "./components/Employees/EmployeeEdit.jsx";
 import Signup from "./pages/Login/Signup.jsx";
 import HomeDashboard from "./components/Dashboard/HomeDashboard.jsx";
+import UserContext from "./context/user/UserContext.jsx";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const { setUser } = useContext(UserContext);
   const toggleSidebar = () => {
       setIsSidebarOpen(!isSidebarOpen);
   };
+
+  // Persist login after page refresh
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await getProfile();
+        if (response.message === "Unauthorized") {
+          setUser(null);
+        } else {
+          setUser(response);
+        }
+      } catch (error) {
+        setUser(null);
+      }
+    };
+    fetchProfile();
+  }, []);
+
+
   return (
-    <UserState>
       <Router>
       <div className="d-flex">
         {isSidebarOpen&&<Sidebar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen}/>}
@@ -60,7 +79,6 @@ function App() {
         </div>
       </div>
       </Router>
-    </UserState>
   );
 }
 

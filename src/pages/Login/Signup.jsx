@@ -17,37 +17,37 @@ function Signup() {
       <div className="loginContainer">
         <h3 className="">New authorization for admin access</h3>
         <form action="http://localhost:5000/signup" method="post">
-          <div class="mb-3 mt-3">
-            <label for="employeeId" class="form-label">
+          <div className="mb-3 mt-3">
+            <label htmlFor="employeeId" className="form-label">
               Employee Id
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               name="username"
               id="employeeId"
               aria-describedby="emailHelp"
             />
           </div>
-          <div class="mb-3 mt-3">
-            <label for="employeeId" class="form-label">
+          <div className="mb-3 mt-3">
+            <label htmlFor="employeeId" className="form-label">
               Email Id
             </label>
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="email"
               name="email"
               aria-describedby="emailHelp"
             />
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
-            <input type="password" name="password" class="form-control" id="password" />
+            <input type="password" name="password" className="form-control" id="password" />
           </div>
-          <button type="submit" class="btn btn-dark my-3">
+          <button type="submit" className="btn btn-dark my-3">
             Signup
           </button>
         </form>

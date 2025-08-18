@@ -34,7 +34,7 @@ function EmployeeInfo() {
             <div className="d-flex align-items-start">
                 <div className="leftContainer" style={{width:"30%"}}>
                     <div className="card profileCard" style={{width:"100%"}}>
-                        <h6 class="card-subtitle mb-2">Profile Card</h6>
+                        <h6 className="card-subtitle mb-2">Profile Card</h6>
                         <div className="card-body text-center" style={{width:"100%"}}>
                             <div className="profilePic">
                                 <img src={employee.photo} alt="profilePicture" />
@@ -46,7 +46,7 @@ function EmployeeInfo() {
                         </div>
                     </div> 
                     <div className="card contactCard" style={{width:"100%"}}>
-                        <h6 class="card-subtitle mb-3">Contact Details</h6>
+                        <h6 className="card-subtitle mb-3">Contact Details</h6>
                         <div className="emailContainer mb-3 mx-3">
                             <label htmlFor="" className='mb-1'>Employee Email</label>
                             <a href="mailto:">{employee.email}</a>
@@ -59,7 +59,7 @@ function EmployeeInfo() {
                 </div>
                 <div className="rightContainer mx-3" style={{width:"70%"}}>
                     <div className="card detailsCard" style={{width:"100%"}}>
-                        <h6 class="card-subtitle mb-2">Details</h6>
+                        <h6 className="card-subtitle mb-2">Details</h6>
                         <div className="gender">
                             <label htmlFor="">Gender</label>
                             <p>Male</p>

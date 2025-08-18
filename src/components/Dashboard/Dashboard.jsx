@@ -135,44 +135,44 @@ function Dashboard() {
           {/* <div className="chart"><Barchart /></div> */}
 
           <div className="planContainer">
-            <h5 class="text-center">Plan For the Day</h5>
+            <h5 className="text-center">Plan For the Day</h5>
             <form method="POST" className="needs-validation" noValidate>
-              <div class="row">
-                <div class=" mb-3">
-                  <label htmlFor="target" class="form-label" >Target of the day</label>
-                  <input type="number" class="form-control" id="target" placeholder="" aria-label="Target For the Day" />
+              <div className="row">
+                <div className=" mb-3">
+                  <label htmlFor="target" className="form-label" >Target of the day</label>
+                  <input type="number" className="form-control" id="target" placeholder="" aria-label="Target For the Day" />
                   <div className="form-text">Warning: target of the day must be less than or equal to overall target.</div>
                 </div>
-                <div class="">
-                  <label htmlFor="target" class="form-label" >Workers left</label>
-                  <input type="number" class="form-control" placeholder="" aria-label="Workers Available" />
+                <div className="">
+                  <label htmlFor="target" className="form-label" >Workers left</label>
+                  <input type="number" className="form-control" placeholder="" aria-label="Workers Available" />
                 </div>
               </div>
-              <div class="row mt-3">
-                <div class="col">
-                  <label htmlFor="target" class="form-label" >Stock for the day</label>
-                  <input type="number" class="form-control" placeholder="" aria-label="Stock For the Day" />
+              <div className="row mt-3">
+                <div className="col">
+                  <label htmlFor="target" className="form-label" >Stock for the day</label>
+                  <input type="number" className="form-control" placeholder="" aria-label="Stock For the Day" />
                 </div>
-                <div class="col">
-                  <label htmlFor="target" class="form-label" >Stock leftout</label>
-                  <input type="number" class="form-control" placeholder="" aria-label="Left Out Stock" />
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col">
-                  <label htmlFor="target" class="form-label" >Faulty Stock</label>
-                  <input type="number" class="form-control" placeholder="" aria-label="Faulty Stock" />
-                </div>
-                <div class="col">
-                  <label htmlFor="target" class="form-label" >Faulty Production</label>
-                  <input type="number" class="form-control" placeholder="" aria-label="Faulty Production" />
+                <div className="col">
+                  <label htmlFor="target" className="form-label" >Stock leftout</label>
+                  <input type="number" className="form-control" placeholder="" aria-label="Left Out Stock" />
                 </div>
               </div>
-              <div class="mt-3" >
-                <label htmlFor="target" class="form-label" >Product Details <span style={{color:"rgb(170, 170, 170)"}}>(Include Test Details Also)</span></label>
+              <div className="row mt-3">
+                <div className="col">
+                  <label htmlFor="target" className="form-label" >Faulty Stock</label>
+                  <input type="number" className="form-control" placeholder="" aria-label="Faulty Stock" />
+                </div>
+                <div className="col">
+                  <label htmlFor="target" className="form-label" >Faulty Production</label>
+                  <input type="number" className="form-control" placeholder="" aria-label="Faulty Production" />
+                </div>
+              </div>
+              <div className="mt-3" >
+                <label htmlFor="target" className="form-label" >Product Details <span style={{color:"rgb(170, 170, 170)"}}>(Include Test Details Also)</span></label>
                 <textarea name="productInfo" id="productInfo" placeholder="" rows={10}></textarea>
               </div>
-              <button type="submit" class="mt-3 btn btn-sm btn-dark mb-3">Submit</button>
+              <button type="submit" className="mt-3 btn btn-sm btn-dark mb-3">Submit</button>
             </form>
           </div>
 

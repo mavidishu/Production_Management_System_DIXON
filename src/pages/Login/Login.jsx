@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import "./login.css";
-import dixonLogo from "../../assets/dixon.png";
+import UserContext from "../../context/user/UserContext.jsx";
 import { useNavigate } from "react-router-dom";
+import { set } from "mongoose";
+
 function Login() {
   const [employeeId, setEmployeeId] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { setUser } = useContext(UserContext);
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -21,11 +24,13 @@ function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ username: employeeId, password }),
+        credentials: "include",
       });
 
       const data = await response.json();
 
       if (response.ok) {
+        setUser(data.user);
         console.log("Login successful", data);
         localStorage.setItem("token", data.token);
         navigate("/dashboard");
@@ -33,6 +38,7 @@ function Login() {
         setError(data.message || "Invalid credentials. Try again.");
       }
     } catch (err) {
+      console.error("Login error:", err);
       setError("Something went wrong. Please try again later.");
     } finally {
       setLoading(false);

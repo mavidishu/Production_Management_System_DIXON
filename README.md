@@ -104,3 +104,6 @@ admin-dashboard/
 ├── README.md
 └── package.json
 ```
+
+## Contribution
+Feel free to contribute anything.
